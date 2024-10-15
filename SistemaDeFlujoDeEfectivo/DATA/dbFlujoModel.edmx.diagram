@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="37ac484d92c04b649bb93190d96ac886" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_FLUJOCAJAModel.TB_BANCOS" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_FLUJOCAJAModel.TB_CATEGORIAS" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_FLUJOCAJAModel.TB_CUENTAS_BANCARIAS" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_FLUJOCAJAModel.TB_HISTORIAL_ACCIONES" Width="1.5" PointX="12.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_FLUJOCAJAModel.TB_OPERACIONES" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_FLUJOCAJAModel.TB_PERMISOS" Width="1.5" PointX="5.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_FLUJOCAJAModel.TB_ROLES" Width="1.5" PointX="8" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_FLUJOCAJAModel.TB_TIPOS_CUENTAS" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_FLUJOCAJAModel.TB_TIPOS_FLUJOS" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_FLUJOCAJAModel.TB_USUARIO" Width="1.5" PointX="10.25" PointY="6" IsExpanded="true" />
+        <AssociationConnector Association="DB_FLUJOCAJAModel.FK_TB_CUENT_RL_CUENTA_TB_BANCO" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_FLUJOCAJAModel.FK_TB_CATEG_RL_CATEGO_TB_TIPOS" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_FLUJOCAJAModel.FK_TB_OPERA_RL_OPERAC_TB_CATEG" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_FLUJOCAJAModel.FK_TB_CUENT_RL_CUENTA_TB_TIPOS" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_FLUJOCAJAModel.FK_TB_OPERA_RL_OPERAC_TB_CUENT" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_FLUJOCAJAModel.FK_TB_HISTO_RL_USUARI_TB_USUAR" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_FLUJOCAJAModel.RL_ROL_PERMISO" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_FLUJOCAJAModel.RL_USUARIO_ROL" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

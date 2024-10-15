@@ -1,0 +1,728 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_FLUJOCAJAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="RL_ROL_PERMISO">
+          <Key>
+            <PropertyRef Name="ID_ROL" />
+            <PropertyRef Name="ID_PERMISO" />
+          </Key>
+          <Property Name="ID_ROL" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_PERMISO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RL_USUARIO_ROL">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+            <PropertyRef Name="ID_ROL" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_ROL" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_BANCOS">
+          <Key>
+            <PropertyRef Name="ID_BANCO" />
+          </Key>
+          <Property Name="ID_BANCO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="char" MaxLength="50" />
+          <Property Name="DESCRIPCION" Type="char" MaxLength="255" />
+          <Property Name="USUARIO_INSERT" Type="int" />
+          <Property Name="FECHA_INSERT" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TB_CATEGORIAS">
+          <Key>
+            <PropertyRef Name="ID_CATEGORIA" />
+          </Key>
+          <Property Name="ID_CATEGORIA" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_TIPO_FLUJO" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="NOMBRE" Type="char" MaxLength="50" />
+          <Property Name="DESCRIPCION" Type="char" MaxLength="255" />
+          <Property Name="USUARIO_INSERT" Type="int" />
+          <Property Name="FECHA_INSERT" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TB_CUENTAS_BANCARIAS">
+          <Key>
+            <PropertyRef Name="ID_TIPO_CUENTA" />
+            <PropertyRef Name="ID_BANCO" />
+            <PropertyRef Name="ID_CUENTA_BANCARIA" />
+          </Key>
+          <Property Name="ID_TIPO_CUENTA" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_BANCO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_CUENTA_BANCARIA" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SALDO" Type="float" />
+          <Property Name="USUARIO_INSERT" Type="int" />
+          <Property Name="FECHA_INSERT" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TB_HISTORIAL_ACCIONES">
+          <Key>
+            <PropertyRef Name="ID_HISTORIAL" />
+          </Key>
+          <Property Name="ID_HISTORIAL" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="URL" Type="char" MaxLength="255" />
+          <Property Name="FECHA" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TB_OPERACIONES">
+          <Key>
+            <PropertyRef Name="ID_TIPO_CUENTA" />
+            <PropertyRef Name="ID_BANCO" />
+            <PropertyRef Name="ID_CUENTA_BANCARIA" />
+            <PropertyRef Name="ID_OPERACION" />
+          </Key>
+          <Property Name="ID_TIPO_CUENTA" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_BANCO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_CUENTA_BANCARIA" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_OPERACION" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_CATEGORIA" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="MONTO" Type="float" />
+          <Property Name="DESCRIPCION" Type="char" MaxLength="255" />
+          <Property Name="USUARIO_INSERT" Type="int" />
+          <Property Name="FECHA_INSERT" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TB_PERMISOS">
+          <Key>
+            <PropertyRef Name="ID_PERMISO" />
+          </Key>
+          <Property Name="ID_PERMISO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="char" MaxLength="255" />
+          <Property Name="VIEW" Type="char" MaxLength="50" />
+          <Property Name="URL" Type="char" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="TB_ROLES">
+          <Key>
+            <PropertyRef Name="ID_ROL" />
+          </Key>
+          <Property Name="ID_ROL" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="char" MaxLength="50" />
+          <Property Name="DESCRIPCION" Type="char" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="TB_TIPOS_CUENTAS">
+          <Key>
+            <PropertyRef Name="ID_TIPO_CUENTA" />
+          </Key>
+          <Property Name="ID_TIPO_CUENTA" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="char" MaxLength="50" />
+          <Property Name="USUARIO_INSERT" Type="int" />
+          <Property Name="FECHA_INSERT" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TB_TIPOS_FLUJOS">
+          <Key>
+            <PropertyRef Name="ID_TIPO_FLUJO" />
+          </Key>
+          <Property Name="ID_TIPO_FLUJO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="char" MaxLength="50" />
+          <Property Name="DESCRIPCION" Type="char" MaxLength="255" />
+          <Property Name="USUARIO_INSERT" Type="int" />
+          <Property Name="FECHA_INSERT" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TB_USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="char" MaxLength="50" />
+          <Property Name="APELLIDOS" Type="char" MaxLength="50" />
+          <Property Name="USER" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="PASSWORD" Type="char" MaxLength="255" />
+          <Property Name="USUARIO_INSERT" Type="int" />
+          <Property Name="FECHA_INSERT" Type="datetime" />
+          <Property Name="FECHA_UPDATE" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_RL_ROL_P_RL_ROL_PE_TB_PERMI">
+          <End Role="TB_PERMISOS" Type="Self.TB_PERMISOS" Multiplicity="1" />
+          <End Role="RL_ROL_PERMISO" Type="Self.RL_ROL_PERMISO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_PERMISOS">
+              <PropertyRef Name="ID_PERMISO" />
+            </Principal>
+            <Dependent Role="RL_ROL_PERMISO">
+              <PropertyRef Name="ID_PERMISO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RL_ROL_P_RL_ROL_PE_TB_ROLES">
+          <End Role="TB_ROLES" Type="Self.TB_ROLES" Multiplicity="1" />
+          <End Role="RL_ROL_PERMISO" Type="Self.RL_ROL_PERMISO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_ROLES">
+              <PropertyRef Name="ID_ROL" />
+            </Principal>
+            <Dependent Role="RL_ROL_PERMISO">
+              <PropertyRef Name="ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RL_USUAR_RL_USUARI_TB_ROLES">
+          <End Role="TB_ROLES" Type="Self.TB_ROLES" Multiplicity="1" />
+          <End Role="RL_USUARIO_ROL" Type="Self.RL_USUARIO_ROL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_ROLES">
+              <PropertyRef Name="ID_ROL" />
+            </Principal>
+            <Dependent Role="RL_USUARIO_ROL">
+              <PropertyRef Name="ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RL_USUAR_RL_USUARI_TB_USUAR">
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="1" />
+          <End Role="RL_USUARIO_ROL" Type="Self.RL_USUARIO_ROL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="RL_USUARIO_ROL">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_CATEG_RL_CATEGO_TB_TIPOS">
+          <End Role="TB_TIPOS_FLUJOS" Type="Self.TB_TIPOS_FLUJOS" Multiplicity="0..1" />
+          <End Role="TB_CATEGORIAS" Type="Self.TB_CATEGORIAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPOS_FLUJOS">
+              <PropertyRef Name="ID_TIPO_FLUJO" />
+            </Principal>
+            <Dependent Role="TB_CATEGORIAS">
+              <PropertyRef Name="ID_TIPO_FLUJO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_CUENT_RL_CUENTA_TB_BANCO">
+          <End Role="TB_BANCOS" Type="Self.TB_BANCOS" Multiplicity="1" />
+          <End Role="TB_CUENTAS_BANCARIAS" Type="Self.TB_CUENTAS_BANCARIAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_BANCOS">
+              <PropertyRef Name="ID_BANCO" />
+            </Principal>
+            <Dependent Role="TB_CUENTAS_BANCARIAS">
+              <PropertyRef Name="ID_BANCO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_CUENT_RL_CUENTA_TB_TIPOS">
+          <End Role="TB_TIPOS_CUENTAS" Type="Self.TB_TIPOS_CUENTAS" Multiplicity="1" />
+          <End Role="TB_CUENTAS_BANCARIAS" Type="Self.TB_CUENTAS_BANCARIAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPOS_CUENTAS">
+              <PropertyRef Name="ID_TIPO_CUENTA" />
+            </Principal>
+            <Dependent Role="TB_CUENTAS_BANCARIAS">
+              <PropertyRef Name="ID_TIPO_CUENTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_HISTO_RL_USUARI_TB_USUAR">
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="0..1" />
+          <End Role="TB_HISTORIAL_ACCIONES" Type="Self.TB_HISTORIAL_ACCIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="TB_HISTORIAL_ACCIONES">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_OPERA_RL_OPERAC_TB_CATEG">
+          <End Role="TB_CATEGORIAS" Type="Self.TB_CATEGORIAS" Multiplicity="0..1" />
+          <End Role="TB_OPERACIONES" Type="Self.TB_OPERACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_CATEGORIAS">
+              <PropertyRef Name="ID_CATEGORIA" />
+            </Principal>
+            <Dependent Role="TB_OPERACIONES">
+              <PropertyRef Name="ID_CATEGORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_OPERA_RL_OPERAC_TB_CUENT">
+          <End Role="TB_CUENTAS_BANCARIAS" Type="Self.TB_CUENTAS_BANCARIAS" Multiplicity="1" />
+          <End Role="TB_OPERACIONES" Type="Self.TB_OPERACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_CUENTAS_BANCARIAS">
+              <PropertyRef Name="ID_TIPO_CUENTA" />
+              <PropertyRef Name="ID_BANCO" />
+              <PropertyRef Name="ID_CUENTA_BANCARIA" />
+            </Principal>
+            <Dependent Role="TB_OPERACIONES">
+              <PropertyRef Name="ID_TIPO_CUENTA" />
+              <PropertyRef Name="ID_BANCO" />
+              <PropertyRef Name="ID_CUENTA_BANCARIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_FLUJOCAJAModelStoreContainer">
+          <EntitySet Name="RL_ROL_PERMISO" EntityType="Self.RL_ROL_PERMISO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RL_USUARIO_ROL" EntityType="Self.RL_USUARIO_ROL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_BANCOS" EntityType="Self.TB_BANCOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_CATEGORIAS" EntityType="Self.TB_CATEGORIAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_CUENTAS_BANCARIAS" EntityType="Self.TB_CUENTAS_BANCARIAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_HISTORIAL_ACCIONES" EntityType="Self.TB_HISTORIAL_ACCIONES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_OPERACIONES" EntityType="Self.TB_OPERACIONES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_PERMISOS" EntityType="Self.TB_PERMISOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_ROLES" EntityType="Self.TB_ROLES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_TIPOS_CUENTAS" EntityType="Self.TB_TIPOS_CUENTAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_TIPOS_FLUJOS" EntityType="Self.TB_TIPOS_FLUJOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_USUARIO" EntityType="Self.TB_USUARIO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_RL_ROL_P_RL_ROL_PE_TB_PERMI" Association="Self.FK_RL_ROL_P_RL_ROL_PE_TB_PERMI">
+            <End Role="TB_PERMISOS" EntitySet="TB_PERMISOS" />
+            <End Role="RL_ROL_PERMISO" EntitySet="RL_ROL_PERMISO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RL_ROL_P_RL_ROL_PE_TB_ROLES" Association="Self.FK_RL_ROL_P_RL_ROL_PE_TB_ROLES">
+            <End Role="TB_ROLES" EntitySet="TB_ROLES" />
+            <End Role="RL_ROL_PERMISO" EntitySet="RL_ROL_PERMISO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RL_USUAR_RL_USUARI_TB_ROLES" Association="Self.FK_RL_USUAR_RL_USUARI_TB_ROLES">
+            <End Role="TB_ROLES" EntitySet="TB_ROLES" />
+            <End Role="RL_USUARIO_ROL" EntitySet="RL_USUARIO_ROL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RL_USUAR_RL_USUARI_TB_USUAR" Association="Self.FK_RL_USUAR_RL_USUARI_TB_USUAR">
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+            <End Role="RL_USUARIO_ROL" EntitySet="RL_USUARIO_ROL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_CATEG_RL_CATEGO_TB_TIPOS" Association="Self.FK_TB_CATEG_RL_CATEGO_TB_TIPOS">
+            <End Role="TB_TIPOS_FLUJOS" EntitySet="TB_TIPOS_FLUJOS" />
+            <End Role="TB_CATEGORIAS" EntitySet="TB_CATEGORIAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_CUENT_RL_CUENTA_TB_BANCO" Association="Self.FK_TB_CUENT_RL_CUENTA_TB_BANCO">
+            <End Role="TB_BANCOS" EntitySet="TB_BANCOS" />
+            <End Role="TB_CUENTAS_BANCARIAS" EntitySet="TB_CUENTAS_BANCARIAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_CUENT_RL_CUENTA_TB_TIPOS" Association="Self.FK_TB_CUENT_RL_CUENTA_TB_TIPOS">
+            <End Role="TB_TIPOS_CUENTAS" EntitySet="TB_TIPOS_CUENTAS" />
+            <End Role="TB_CUENTAS_BANCARIAS" EntitySet="TB_CUENTAS_BANCARIAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_HISTO_RL_USUARI_TB_USUAR" Association="Self.FK_TB_HISTO_RL_USUARI_TB_USUAR">
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+            <End Role="TB_HISTORIAL_ACCIONES" EntitySet="TB_HISTORIAL_ACCIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_OPERA_RL_OPERAC_TB_CATEG" Association="Self.FK_TB_OPERA_RL_OPERAC_TB_CATEG">
+            <End Role="TB_CATEGORIAS" EntitySet="TB_CATEGORIAS" />
+            <End Role="TB_OPERACIONES" EntitySet="TB_OPERACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_OPERA_RL_OPERAC_TB_CUENT" Association="Self.FK_TB_OPERA_RL_OPERAC_TB_CUENT">
+            <End Role="TB_CUENTAS_BANCARIAS" EntitySet="TB_CUENTAS_BANCARIAS" />
+            <End Role="TB_OPERACIONES" EntitySet="TB_OPERACIONES" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_FLUJOCAJAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TB_BANCOS">
+          <Key>
+            <PropertyRef Name="ID_BANCO" />
+          </Key>
+          <Property Name="ID_BANCO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
+          <Property Name="USUARIO_INSERT" Type="Int32" />
+          <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TB_CUENTAS_BANCARIAS" Relationship="Self.FK_TB_CUENT_RL_CUENTA_TB_BANCO" FromRole="TB_BANCOS" ToRole="TB_CUENTAS_BANCARIAS" />
+        </EntityType>
+        <EntityType Name="TB_CATEGORIAS">
+          <Key>
+            <PropertyRef Name="ID_CATEGORIA" />
+          </Key>
+          <Property Name="ID_CATEGORIA" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_TIPO_FLUJO" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
+          <Property Name="USUARIO_INSERT" Type="Int32" />
+          <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TB_TIPOS_FLUJOS" Relationship="Self.FK_TB_CATEG_RL_CATEGO_TB_TIPOS" FromRole="TB_CATEGORIAS" ToRole="TB_TIPOS_FLUJOS" />
+          <NavigationProperty Name="TB_OPERACIONES" Relationship="Self.FK_TB_OPERA_RL_OPERAC_TB_CATEG" FromRole="TB_CATEGORIAS" ToRole="TB_OPERACIONES" />
+        </EntityType>
+        <EntityType Name="TB_CUENTAS_BANCARIAS">
+          <Key>
+            <PropertyRef Name="ID_TIPO_CUENTA" />
+            <PropertyRef Name="ID_BANCO" />
+            <PropertyRef Name="ID_CUENTA_BANCARIA" />
+          </Key>
+          <Property Name="ID_TIPO_CUENTA" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_BANCO" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_CUENTA_BANCARIA" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SALDO" Type="Double" />
+          <Property Name="USUARIO_INSERT" Type="Int32" />
+          <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TB_BANCOS" Relationship="Self.FK_TB_CUENT_RL_CUENTA_TB_BANCO" FromRole="TB_CUENTAS_BANCARIAS" ToRole="TB_BANCOS" />
+          <NavigationProperty Name="TB_TIPOS_CUENTAS" Relationship="Self.FK_TB_CUENT_RL_CUENTA_TB_TIPOS" FromRole="TB_CUENTAS_BANCARIAS" ToRole="TB_TIPOS_CUENTAS" />
+          <NavigationProperty Name="TB_OPERACIONES" Relationship="Self.FK_TB_OPERA_RL_OPERAC_TB_CUENT" FromRole="TB_CUENTAS_BANCARIAS" ToRole="TB_OPERACIONES" />
+        </EntityType>
+        <EntityType Name="TB_HISTORIAL_ACCIONES">
+          <Key>
+            <PropertyRef Name="ID_HISTORIAL" />
+          </Key>
+          <Property Name="ID_HISTORIAL" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_USUARIO" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="URL" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
+          <Property Name="FECHA" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TB_USUARIO" Relationship="Self.FK_TB_HISTO_RL_USUARI_TB_USUAR" FromRole="TB_HISTORIAL_ACCIONES" ToRole="TB_USUARIO" />
+        </EntityType>
+        <EntityType Name="TB_OPERACIONES">
+          <Key>
+            <PropertyRef Name="ID_TIPO_CUENTA" />
+            <PropertyRef Name="ID_BANCO" />
+            <PropertyRef Name="ID_CUENTA_BANCARIA" />
+            <PropertyRef Name="ID_OPERACION" />
+          </Key>
+          <Property Name="ID_TIPO_CUENTA" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_BANCO" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_CUENTA_BANCARIA" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_OPERACION" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_CATEGORIA" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MONTO" Type="Double" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
+          <Property Name="USUARIO_INSERT" Type="Int32" />
+          <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TB_CATEGORIAS" Relationship="Self.FK_TB_OPERA_RL_OPERAC_TB_CATEG" FromRole="TB_OPERACIONES" ToRole="TB_CATEGORIAS" />
+          <NavigationProperty Name="TB_CUENTAS_BANCARIAS" Relationship="Self.FK_TB_OPERA_RL_OPERAC_TB_CUENT" FromRole="TB_OPERACIONES" ToRole="TB_CUENTAS_BANCARIAS" />
+        </EntityType>
+        <EntityType Name="TB_PERMISOS">
+          <Key>
+            <PropertyRef Name="ID_PERMISO" />
+          </Key>
+          <Property Name="ID_PERMISO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
+          <Property Name="VIEW" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="URL" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="TB_ROLES" Relationship="Self.RL_ROL_PERMISO" FromRole="TB_PERMISOS" ToRole="TB_ROLES" />
+        </EntityType>
+        <EntityType Name="TB_ROLES">
+          <Key>
+            <PropertyRef Name="ID_ROL" />
+          </Key>
+          <Property Name="ID_ROL" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="TB_PERMISOS" Relationship="Self.RL_ROL_PERMISO" FromRole="TB_ROLES" ToRole="TB_PERMISOS" />
+          <NavigationProperty Name="TB_USUARIO" Relationship="Self.RL_USUARIO_ROL" FromRole="TB_ROLES" ToRole="TB_USUARIO" />
+        </EntityType>
+        <EntityType Name="TB_TIPOS_CUENTAS">
+          <Key>
+            <PropertyRef Name="ID_TIPO_CUENTA" />
+          </Key>
+          <Property Name="ID_TIPO_CUENTA" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="USUARIO_INSERT" Type="Int32" />
+          <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TB_CUENTAS_BANCARIAS" Relationship="Self.FK_TB_CUENT_RL_CUENTA_TB_TIPOS" FromRole="TB_TIPOS_CUENTAS" ToRole="TB_CUENTAS_BANCARIAS" />
+        </EntityType>
+        <EntityType Name="TB_TIPOS_FLUJOS">
+          <Key>
+            <PropertyRef Name="ID_TIPO_FLUJO" />
+          </Key>
+          <Property Name="ID_TIPO_FLUJO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
+          <Property Name="USUARIO_INSERT" Type="Int32" />
+          <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TB_CATEGORIAS" Relationship="Self.FK_TB_CATEG_RL_CATEGO_TB_TIPOS" FromRole="TB_TIPOS_FLUJOS" ToRole="TB_CATEGORIAS" />
+        </EntityType>
+        <EntityType Name="TB_USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="APELLIDOS" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="USER" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
+          <Property Name="USUARIO_INSERT" Type="Int32" />
+          <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
+          <Property Name="FECHA_UPDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TB_HISTORIAL_ACCIONES" Relationship="Self.FK_TB_HISTO_RL_USUARI_TB_USUAR" FromRole="TB_USUARIO" ToRole="TB_HISTORIAL_ACCIONES" />
+          <NavigationProperty Name="TB_ROLES" Relationship="Self.RL_USUARIO_ROL" FromRole="TB_USUARIO" ToRole="TB_ROLES" />
+        </EntityType>
+        <Association Name="FK_TB_CUENT_RL_CUENTA_TB_BANCO">
+          <End Role="TB_BANCOS" Type="Self.TB_BANCOS" Multiplicity="1" />
+          <End Role="TB_CUENTAS_BANCARIAS" Type="Self.TB_CUENTAS_BANCARIAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_BANCOS">
+              <PropertyRef Name="ID_BANCO" />
+            </Principal>
+            <Dependent Role="TB_CUENTAS_BANCARIAS">
+              <PropertyRef Name="ID_BANCO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_CATEG_RL_CATEGO_TB_TIPOS">
+          <End Role="TB_TIPOS_FLUJOS" Type="Self.TB_TIPOS_FLUJOS" Multiplicity="0..1" />
+          <End Role="TB_CATEGORIAS" Type="Self.TB_CATEGORIAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPOS_FLUJOS">
+              <PropertyRef Name="ID_TIPO_FLUJO" />
+            </Principal>
+            <Dependent Role="TB_CATEGORIAS">
+              <PropertyRef Name="ID_TIPO_FLUJO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_OPERA_RL_OPERAC_TB_CATEG">
+          <End Role="TB_CATEGORIAS" Type="Self.TB_CATEGORIAS" Multiplicity="0..1" />
+          <End Role="TB_OPERACIONES" Type="Self.TB_OPERACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_CATEGORIAS">
+              <PropertyRef Name="ID_CATEGORIA" />
+            </Principal>
+            <Dependent Role="TB_OPERACIONES">
+              <PropertyRef Name="ID_CATEGORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_CUENT_RL_CUENTA_TB_TIPOS">
+          <End Role="TB_TIPOS_CUENTAS" Type="Self.TB_TIPOS_CUENTAS" Multiplicity="1" />
+          <End Role="TB_CUENTAS_BANCARIAS" Type="Self.TB_CUENTAS_BANCARIAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPOS_CUENTAS">
+              <PropertyRef Name="ID_TIPO_CUENTA" />
+            </Principal>
+            <Dependent Role="TB_CUENTAS_BANCARIAS">
+              <PropertyRef Name="ID_TIPO_CUENTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_OPERA_RL_OPERAC_TB_CUENT">
+          <End Role="TB_CUENTAS_BANCARIAS" Type="Self.TB_CUENTAS_BANCARIAS" Multiplicity="1" />
+          <End Role="TB_OPERACIONES" Type="Self.TB_OPERACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_CUENTAS_BANCARIAS">
+              <PropertyRef Name="ID_TIPO_CUENTA" />
+              <PropertyRef Name="ID_BANCO" />
+              <PropertyRef Name="ID_CUENTA_BANCARIA" />
+            </Principal>
+            <Dependent Role="TB_OPERACIONES">
+              <PropertyRef Name="ID_TIPO_CUENTA" />
+              <PropertyRef Name="ID_BANCO" />
+              <PropertyRef Name="ID_CUENTA_BANCARIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_HISTO_RL_USUARI_TB_USUAR">
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="0..1" />
+          <End Role="TB_HISTORIAL_ACCIONES" Type="Self.TB_HISTORIAL_ACCIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="TB_HISTORIAL_ACCIONES">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RL_ROL_PERMISO">
+          <End Role="TB_PERMISOS" Type="Self.TB_PERMISOS" Multiplicity="*" />
+          <End Role="TB_ROLES" Type="Self.TB_ROLES" Multiplicity="*" />
+        </Association>
+        <Association Name="RL_USUARIO_ROL">
+          <End Role="TB_ROLES" Type="Self.TB_ROLES" Multiplicity="*" />
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DB_FLUJOCAJAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TB_BANCOS" EntityType="Self.TB_BANCOS" />
+          <EntitySet Name="TB_CATEGORIAS" EntityType="Self.TB_CATEGORIAS" />
+          <EntitySet Name="TB_CUENTAS_BANCARIAS" EntityType="Self.TB_CUENTAS_BANCARIAS" />
+          <EntitySet Name="TB_HISTORIAL_ACCIONES" EntityType="Self.TB_HISTORIAL_ACCIONES" />
+          <EntitySet Name="TB_OPERACIONES" EntityType="Self.TB_OPERACIONES" />
+          <EntitySet Name="TB_PERMISOS" EntityType="Self.TB_PERMISOS" />
+          <EntitySet Name="TB_ROLES" EntityType="Self.TB_ROLES" />
+          <EntitySet Name="TB_TIPOS_CUENTAS" EntityType="Self.TB_TIPOS_CUENTAS" />
+          <EntitySet Name="TB_TIPOS_FLUJOS" EntityType="Self.TB_TIPOS_FLUJOS" />
+          <EntitySet Name="TB_USUARIO" EntityType="Self.TB_USUARIO" />
+          <AssociationSet Name="FK_TB_CUENT_RL_CUENTA_TB_BANCO" Association="Self.FK_TB_CUENT_RL_CUENTA_TB_BANCO">
+            <End Role="TB_BANCOS" EntitySet="TB_BANCOS" />
+            <End Role="TB_CUENTAS_BANCARIAS" EntitySet="TB_CUENTAS_BANCARIAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_CATEG_RL_CATEGO_TB_TIPOS" Association="Self.FK_TB_CATEG_RL_CATEGO_TB_TIPOS">
+            <End Role="TB_TIPOS_FLUJOS" EntitySet="TB_TIPOS_FLUJOS" />
+            <End Role="TB_CATEGORIAS" EntitySet="TB_CATEGORIAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_OPERA_RL_OPERAC_TB_CATEG" Association="Self.FK_TB_OPERA_RL_OPERAC_TB_CATEG">
+            <End Role="TB_CATEGORIAS" EntitySet="TB_CATEGORIAS" />
+            <End Role="TB_OPERACIONES" EntitySet="TB_OPERACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_CUENT_RL_CUENTA_TB_TIPOS" Association="Self.FK_TB_CUENT_RL_CUENTA_TB_TIPOS">
+            <End Role="TB_TIPOS_CUENTAS" EntitySet="TB_TIPOS_CUENTAS" />
+            <End Role="TB_CUENTAS_BANCARIAS" EntitySet="TB_CUENTAS_BANCARIAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_OPERA_RL_OPERAC_TB_CUENT" Association="Self.FK_TB_OPERA_RL_OPERAC_TB_CUENT">
+            <End Role="TB_CUENTAS_BANCARIAS" EntitySet="TB_CUENTAS_BANCARIAS" />
+            <End Role="TB_OPERACIONES" EntitySet="TB_OPERACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_HISTO_RL_USUARI_TB_USUAR" Association="Self.FK_TB_HISTO_RL_USUARI_TB_USUAR">
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+            <End Role="TB_HISTORIAL_ACCIONES" EntitySet="TB_HISTORIAL_ACCIONES" />
+          </AssociationSet>
+          <AssociationSet Name="RL_ROL_PERMISO" Association="Self.RL_ROL_PERMISO">
+            <End Role="TB_PERMISOS" EntitySet="TB_PERMISOS" />
+            <End Role="TB_ROLES" EntitySet="TB_ROLES" />
+          </AssociationSet>
+          <AssociationSet Name="RL_USUARIO_ROL" Association="Self.RL_USUARIO_ROL">
+            <End Role="TB_ROLES" EntitySet="TB_ROLES" />
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_FLUJOCAJAModelStoreContainer" CdmEntityContainer="DB_FLUJOCAJAEntities">
+          <EntitySetMapping Name="TB_BANCOS">
+            <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_BANCOS">
+              <MappingFragment StoreEntitySet="TB_BANCOS">
+                <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="USUARIO_INSERT" ColumnName="USUARIO_INSERT" />
+                <ScalarProperty Name="FECHA_INSERT" ColumnName="FECHA_INSERT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_CATEGORIAS">
+            <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_CATEGORIAS">
+              <MappingFragment StoreEntitySet="TB_CATEGORIAS">
+                <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+                <ScalarProperty Name="ID_TIPO_FLUJO" ColumnName="ID_TIPO_FLUJO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="USUARIO_INSERT" ColumnName="USUARIO_INSERT" />
+                <ScalarProperty Name="FECHA_INSERT" ColumnName="FECHA_INSERT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_CUENTAS_BANCARIAS">
+            <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_CUENTAS_BANCARIAS">
+              <MappingFragment StoreEntitySet="TB_CUENTAS_BANCARIAS">
+                <ScalarProperty Name="ID_TIPO_CUENTA" ColumnName="ID_TIPO_CUENTA" />
+                <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+                <ScalarProperty Name="ID_CUENTA_BANCARIA" ColumnName="ID_CUENTA_BANCARIA" />
+                <ScalarProperty Name="SALDO" ColumnName="SALDO" />
+                <ScalarProperty Name="USUARIO_INSERT" ColumnName="USUARIO_INSERT" />
+                <ScalarProperty Name="FECHA_INSERT" ColumnName="FECHA_INSERT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_HISTORIAL_ACCIONES">
+            <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_HISTORIAL_ACCIONES">
+              <MappingFragment StoreEntitySet="TB_HISTORIAL_ACCIONES">
+                <ScalarProperty Name="ID_HISTORIAL" ColumnName="ID_HISTORIAL" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_OPERACIONES">
+            <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_OPERACIONES">
+              <MappingFragment StoreEntitySet="TB_OPERACIONES">
+                <ScalarProperty Name="ID_TIPO_CUENTA" ColumnName="ID_TIPO_CUENTA" />
+                <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+                <ScalarProperty Name="ID_CUENTA_BANCARIA" ColumnName="ID_CUENTA_BANCARIA" />
+                <ScalarProperty Name="ID_OPERACION" ColumnName="ID_OPERACION" />
+                <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+                <ScalarProperty Name="MONTO" ColumnName="MONTO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="USUARIO_INSERT" ColumnName="USUARIO_INSERT" />
+                <ScalarProperty Name="FECHA_INSERT" ColumnName="FECHA_INSERT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_PERMISOS">
+            <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_PERMISOS">
+              <MappingFragment StoreEntitySet="TB_PERMISOS">
+                <ScalarProperty Name="ID_PERMISO" ColumnName="ID_PERMISO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="VIEW" ColumnName="VIEW" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_ROLES">
+            <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_ROLES">
+              <MappingFragment StoreEntitySet="TB_ROLES">
+                <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_TIPOS_CUENTAS">
+            <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_TIPOS_CUENTAS">
+              <MappingFragment StoreEntitySet="TB_TIPOS_CUENTAS">
+                <ScalarProperty Name="ID_TIPO_CUENTA" ColumnName="ID_TIPO_CUENTA" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="USUARIO_INSERT" ColumnName="USUARIO_INSERT" />
+                <ScalarProperty Name="FECHA_INSERT" ColumnName="FECHA_INSERT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_TIPOS_FLUJOS">
+            <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_TIPOS_FLUJOS">
+              <MappingFragment StoreEntitySet="TB_TIPOS_FLUJOS">
+                <ScalarProperty Name="ID_TIPO_FLUJO" ColumnName="ID_TIPO_FLUJO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="USUARIO_INSERT" ColumnName="USUARIO_INSERT" />
+                <ScalarProperty Name="FECHA_INSERT" ColumnName="FECHA_INSERT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_USUARIO">
+            <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_USUARIO">
+              <MappingFragment StoreEntitySet="TB_USUARIO">
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />
+                <ScalarProperty Name="USER" ColumnName="USER" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="USUARIO_INSERT" ColumnName="USUARIO_INSERT" />
+                <ScalarProperty Name="FECHA_INSERT" ColumnName="FECHA_INSERT" />
+                <ScalarProperty Name="FECHA_UPDATE" ColumnName="FECHA_UPDATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="RL_ROL_PERMISO" TypeName="DB_FLUJOCAJAModel.RL_ROL_PERMISO" StoreEntitySet="RL_ROL_PERMISO">
+            <EndProperty Name="TB_PERMISOS">
+              <ScalarProperty Name="ID_PERMISO" ColumnName="ID_PERMISO" />
+            </EndProperty>
+            <EndProperty Name="TB_ROLES">
+              <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="RL_USUARIO_ROL" TypeName="DB_FLUJOCAJAModel.RL_USUARIO_ROL" StoreEntitySet="RL_USUARIO_ROL">
+            <EndProperty Name="TB_ROLES">
+              <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
+            </EndProperty>
+            <EndProperty Name="TB_USUARIO">
+              <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
