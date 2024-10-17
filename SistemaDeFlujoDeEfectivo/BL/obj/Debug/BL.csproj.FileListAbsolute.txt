@@ -1,0 +1,15 @@
+C:\Users\ds239\source\repos\apiProject\SistemaDeFlujoDeEfectivo\BL\bin\Debug\BL.dll.config
+C:\Users\ds239\source\repos\apiProject\SistemaDeFlujoDeEfectivo\BL\bin\Debug\BL.dll
+C:\Users\ds239\source\repos\apiProject\SistemaDeFlujoDeEfectivo\BL\bin\Debug\BL.pdb
+C:\Users\ds239\source\repos\apiProject\SistemaDeFlujoDeEfectivo\BL\bin\Debug\DATA.dll
+C:\Users\ds239\source\repos\apiProject\SistemaDeFlujoDeEfectivo\BL\bin\Debug\EntityFramework.dll
+C:\Users\ds239\source\repos\apiProject\SistemaDeFlujoDeEfectivo\BL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ds239\source\repos\apiProject\SistemaDeFlujoDeEfectivo\BL\bin\Debug\DATA.pdb
+C:\Users\ds239\source\repos\apiProject\SistemaDeFlujoDeEfectivo\BL\bin\Debug\DATA.dll.config
+C:\Users\ds239\source\repos\apiProject\SistemaDeFlujoDeEfectivo\BL\bin\Debug\EntityFramework.xml
+C:\Users\ds239\source\repos\apiProject\SistemaDeFlujoDeEfectivo\BL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ds239\source\repos\apiProject\SistemaDeFlujoDeEfectivo\BL\obj\Debug\BL.csproj.AssemblyReference.cache
+C:\Users\ds239\source\repos\apiProject\SistemaDeFlujoDeEfectivo\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+C:\Users\ds239\source\repos\apiProject\SistemaDeFlujoDeEfectivo\BL\obj\Debug\BL.csproj.CopyComplete
+C:\Users\ds239\source\repos\apiProject\SistemaDeFlujoDeEfectivo\BL\obj\Debug\BL.dll
+C:\Users\ds239\source\repos\apiProject\SistemaDeFlujoDeEfectivo\BL\obj\Debug\BL.pdb

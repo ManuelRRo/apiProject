@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_FLUJOCAJAModelStoreContainer" CdmEntityContainer="DB_FLUJOCAJAEntities">
+    <EntitySetMapping Name="TB_BANCOS">
+      <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_BANCOS">
+        <MappingFragment StoreEntitySet="TB_BANCOS">
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="USUARIO_INSERT" ColumnName="USUARIO_INSERT" />
+          <ScalarProperty Name="FECHA_INSERT" ColumnName="FECHA_INSERT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_CATEGORIAS">
+      <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_CATEGORIAS">
+        <MappingFragment StoreEntitySet="TB_CATEGORIAS">
+          <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+          <ScalarProperty Name="ID_TIPO_FLUJO" ColumnName="ID_TIPO_FLUJO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="USUARIO_INSERT" ColumnName="USUARIO_INSERT" />
+          <ScalarProperty Name="FECHA_INSERT" ColumnName="FECHA_INSERT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_CUENTAS_BANCARIAS">
+      <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_CUENTAS_BANCARIAS">
+        <MappingFragment StoreEntitySet="TB_CUENTAS_BANCARIAS">
+          <ScalarProperty Name="ID_TIPO_CUENTA" ColumnName="ID_TIPO_CUENTA" />
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+          <ScalarProperty Name="ID_CUENTA_BANCARIA" ColumnName="ID_CUENTA_BANCARIA" />
+          <ScalarProperty Name="SALDO" ColumnName="SALDO" />
+          <ScalarProperty Name="USUARIO_INSERT" ColumnName="USUARIO_INSERT" />
+          <ScalarProperty Name="FECHA_INSERT" ColumnName="FECHA_INSERT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_HISTORIAL_ACCIONES">
+      <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_HISTORIAL_ACCIONES">
+        <MappingFragment StoreEntitySet="TB_HISTORIAL_ACCIONES">
+          <ScalarProperty Name="ID_HISTORIAL" ColumnName="ID_HISTORIAL" />
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_OPERACIONES">
+      <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_OPERACIONES">
+        <MappingFragment StoreEntitySet="TB_OPERACIONES">
+          <ScalarProperty Name="ID_TIPO_CUENTA" ColumnName="ID_TIPO_CUENTA" />
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+          <ScalarProperty Name="ID_CUENTA_BANCARIA" ColumnName="ID_CUENTA_BANCARIA" />
+          <ScalarProperty Name="ID_OPERACION" ColumnName="ID_OPERACION" />
+          <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+          <ScalarProperty Name="MONTO" ColumnName="MONTO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="USUARIO_INSERT" ColumnName="USUARIO_INSERT" />
+          <ScalarProperty Name="FECHA_INSERT" ColumnName="FECHA_INSERT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_PERMISOS">
+      <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_PERMISOS">
+        <MappingFragment StoreEntitySet="TB_PERMISOS">
+          <ScalarProperty Name="ID_PERMISO" ColumnName="ID_PERMISO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="VIEW" ColumnName="VIEW" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_ROLES">
+      <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_ROLES">
+        <MappingFragment StoreEntitySet="TB_ROLES">
+          <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_TIPOS_CUENTAS">
+      <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_TIPOS_CUENTAS">
+        <MappingFragment StoreEntitySet="TB_TIPOS_CUENTAS">
+          <ScalarProperty Name="ID_TIPO_CUENTA" ColumnName="ID_TIPO_CUENTA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="USUARIO_INSERT" ColumnName="USUARIO_INSERT" />
+          <ScalarProperty Name="FECHA_INSERT" ColumnName="FECHA_INSERT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_TIPOS_FLUJOS">
+      <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_TIPOS_FLUJOS">
+        <MappingFragment StoreEntitySet="TB_TIPOS_FLUJOS">
+          <ScalarProperty Name="ID_TIPO_FLUJO" ColumnName="ID_TIPO_FLUJO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="USUARIO_INSERT" ColumnName="USUARIO_INSERT" />
+          <ScalarProperty Name="FECHA_INSERT" ColumnName="FECHA_INSERT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_USUARIO">
+      <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_USUARIO">
+        <MappingFragment StoreEntitySet="TB_USUARIO">
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />
+          <ScalarProperty Name="USER" ColumnName="USER" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="USUARIO_INSERT" ColumnName="USUARIO_INSERT" />
+          <ScalarProperty Name="FECHA_INSERT" ColumnName="FECHA_INSERT" />
+          <ScalarProperty Name="FECHA_UPDATE" ColumnName="FECHA_UPDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="RL_ROL_PERMISO" TypeName="DB_FLUJOCAJAModel.RL_ROL_PERMISO" StoreEntitySet="RL_ROL_PERMISO">
+      <EndProperty Name="TB_PERMISOS">
+        <ScalarProperty Name="ID_PERMISO" ColumnName="ID_PERMISO" />
+      </EndProperty>
+      <EndProperty Name="TB_ROLES">
+        <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RL_USUARIO_ROL" TypeName="DB_FLUJOCAJAModel.RL_USUARIO_ROL" StoreEntitySet="RL_USUARIO_ROL">
+      <EndProperty Name="TB_ROLES">
+        <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
+      </EndProperty>
+      <EndProperty Name="TB_USUARIO">
+        <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

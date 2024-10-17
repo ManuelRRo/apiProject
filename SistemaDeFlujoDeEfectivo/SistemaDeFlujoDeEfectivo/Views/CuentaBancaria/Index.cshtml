@@ -1,0 +1,83 @@
+﻿@model BL.DTO.CuentasBancarias.CuentasBancariasView
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .bordered-tablee-container {
+        border: 2px solid #337AB7; /* Color y grosor del borde */
+        border-radius: 5px; /* Opcional: bordes redondeados */
+    }
+    .bordered-formm-container {
+        border: 2px solid #D6E9C6; /* Color y grosor del borde */
+        padding: 15px;
+        border-radius: 5px; /* Opcional: bordes redondeados */
+        margin-left: 10px;
+    }
+    .background-table-headerr {
+        background-color: #337AB7;
+        color: white;
+        border-top-left-radius: 5px; /* Esquina superior izquierda */
+        border-top-right-radius: 5px; /* Esquina superior derecha */
+    }
+    .background-form-headerr {
+        background-color: #D6E9C6;
+        color: #3C763D;
+        border-top-left-radius: 5px; /* Esquina superior izquierda */
+        border-top-right-radius: 5px; /* Esquina superior derecha */
+        
+    }
+</style>
+
+<br />
+
+<div class="row">
+    <div class="col-md-7 bordered-tablee-container">
+        <h4 class="background-table-headerr">Cuentas Bancarias Disponibles</h4>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Cuenta</th>
+                <th>Banco</th>
+                <th>Saldo</th>
+                <th>Acciones</th>
+            </tr>
+            @foreach (var e in Model.CuentasBancarias)
+            {
+                <tr>
+                    <td>@e.id_tipo_cuenta</td>
+                    <td>@e.cuenta.NOMBRE</td>
+                    <td>@e.banco.NOMBRE</td>
+                    <td>@e.saldo</td>
+                    <td>
+                        <a class="btn btn-primary" href="~/Banco/Index/@e.id_tipo_cuenta">Editar</a>
+                        <a class="btn btn-danger" href="~/Banco/Eliminar/@e.id_tipo_cuenta">Eliminar</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    <div class="col-md-4 bordered-formm-container">
+        <h4 class="background-form-headerr">Nuevo Registro de Cuenta Bancaria</h4>
+        @using (Html.BeginForm("Index", "CuentaBancaria", FormMethod.Post))
+        {
+            @Html.HiddenFor(d => d.cuentaBancaria.id_tipo_cuenta)
+            <span>Número de cuenta</span>
+            <input type="text" placeholder="Tipo de cuenta" class="form-control" />
+            <br />
+            <span>Tipo de Cuenta</span>
+            <input type="text" placeholder="Tipo de cuenta" class="form-control" />
+            <br />
+            <span class="">Banco</span>
+            @Html.DropDownList("Bancos", null, "Seleccionar Banco", new { @class = "form-control" })
+            <br />
+            <span>Saldo</span>
+            @Html.TextBoxFor(d => d.cuentaBancaria.saldo, new { @class = "form-control" })
+            <br />
+            <input type="submit" value="Guardar" class="btn btn-success"/>
+        }
+    </div>
+</div>
+
+

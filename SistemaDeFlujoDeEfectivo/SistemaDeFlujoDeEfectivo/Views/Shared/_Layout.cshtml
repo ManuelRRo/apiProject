@@ -8,21 +8,30 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <style>
+        .green-navbarr {
+            background-color: #E1EECD;  
+        }
+        .black-text-navbarr {
+            color: black;
+        }
+    </style>
+    <div class="navbar navbar-inverse navbar-fixed-top green-navbarr black-text-navbarr">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
+                    <span class="icon-bar black-text-navbarr"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <div class="navbar-collapse collapse black-text-navbarr">
+                <ul class="nav navbar-nav black-text-navbarr">
+                    <li class="black-text-navbarr">@Html.ActionLink("Cuentas Bancarias", "Index", "CuentaBancaria")</li>
+                    <li class="black-text-navbarr">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li class="black-text-navbarr">@Html.ActionLink("About", "About", "Home")</li>
+                    <li class="black-text-navbarr">@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
             </div>
         </div>
@@ -36,6 +45,7 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
