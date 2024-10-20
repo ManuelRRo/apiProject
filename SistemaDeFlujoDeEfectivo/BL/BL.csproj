@@ -53,11 +53,13 @@
   <ItemGroup>
     <Compile Include="ClaseBL\TB_BANCOS_BL.cs" />
     <Compile Include="ClaseBL\TB_CUENTAS_BANCARIAS_BL.cs" />
+    <Compile Include="ClaseBL\TB_TIPOS_CUENTAS_BL.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DTO\Bancos\TB_BANCOS_LIST.cs" />
     <Compile Include="DTO\CuentasBancarias\CuentasBancariasView.cs" />
     <Compile Include="DTO\CuentasBancarias\TB_CUENTAS_BANCARIAS_DTO.cs" />
     <Compile Include="DTO\CuentasBancarias\TB_CUENTAS_BANCARIAS_INSERT.cs" />
+    <Compile Include="DTO\TipoCuentas\TB_TIPOS_CUENTAS_LIST.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

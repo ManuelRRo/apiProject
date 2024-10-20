@@ -21,8 +21,8 @@
       <PropertyRef Name="ID_BANCO" />
     </Key>
     <Property Name="ID_BANCO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NOMBRE" Type="char" MaxLength="50" />
-    <Property Name="DESCRIPCION" Type="char" MaxLength="255" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
     <Property Name="USUARIO_INSERT" Type="int" />
     <Property Name="FECHA_INSERT" Type="datetime" />
   </EntityType>
@@ -32,8 +32,8 @@
     </Key>
     <Property Name="ID_CATEGORIA" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ID_TIPO_FLUJO" Type="numeric" Precision="18" Scale="0" />
-    <Property Name="NOMBRE" Type="char" MaxLength="50" />
-    <Property Name="DESCRIPCION" Type="char" MaxLength="255" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
     <Property Name="USUARIO_INSERT" Type="int" />
     <Property Name="FECHA_INSERT" Type="datetime" />
   </EntityType>
@@ -49,6 +49,7 @@
     <Property Name="SALDO" Type="float" />
     <Property Name="USUARIO_INSERT" Type="int" />
     <Property Name="FECHA_INSERT" Type="datetime" />
+    <Property Name="NUMERO_CUENTA" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="TB_HISTORIAL_ACCIONES">
     <Key>
@@ -56,7 +57,7 @@
     </Key>
     <Property Name="ID_HISTORIAL" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ID_USUARIO" Type="numeric" Precision="18" Scale="0" />
-    <Property Name="URL" Type="char" MaxLength="255" />
+    <Property Name="URL" Type="varchar" MaxLength="255" />
     <Property Name="FECHA" Type="datetime" />
   </EntityType>
   <EntityType Name="TB_OPERACIONES">
@@ -72,7 +73,7 @@
     <Property Name="ID_OPERACION" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ID_CATEGORIA" Type="numeric" Precision="18" Scale="0" />
     <Property Name="MONTO" Type="float" />
-    <Property Name="DESCRIPCION" Type="char" MaxLength="255" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
     <Property Name="USUARIO_INSERT" Type="int" />
     <Property Name="FECHA_INSERT" Type="datetime" />
   </EntityType>
@@ -81,7 +82,7 @@
       <PropertyRef Name="ID_PERMISO" />
     </Key>
     <Property Name="ID_PERMISO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="DESCRIPCION" Type="char" MaxLength="255" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
     <Property Name="VIEW" Type="char" MaxLength="50" />
     <Property Name="URL" Type="char" MaxLength="255" />
   </EntityType>
@@ -90,15 +91,15 @@
       <PropertyRef Name="ID_ROL" />
     </Key>
     <Property Name="ID_ROL" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NOMBRE" Type="char" MaxLength="50" />
-    <Property Name="DESCRIPCION" Type="char" MaxLength="255" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="TB_TIPOS_CUENTAS">
     <Key>
       <PropertyRef Name="ID_TIPO_CUENTA" />
     </Key>
     <Property Name="ID_TIPO_CUENTA" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NOMBRE" Type="char" MaxLength="50" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
     <Property Name="USUARIO_INSERT" Type="int" />
     <Property Name="FECHA_INSERT" Type="datetime" />
   </EntityType>
@@ -107,8 +108,8 @@
       <PropertyRef Name="ID_TIPO_FLUJO" />
     </Key>
     <Property Name="ID_TIPO_FLUJO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NOMBRE" Type="char" MaxLength="50" />
-    <Property Name="DESCRIPCION" Type="char" MaxLength="255" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
     <Property Name="USUARIO_INSERT" Type="int" />
     <Property Name="FECHA_INSERT" Type="datetime" />
   </EntityType>
@@ -117,10 +118,10 @@
       <PropertyRef Name="ID_USUARIO" />
     </Key>
     <Property Name="ID_USUARIO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NOMBRE" Type="char" MaxLength="50" />
-    <Property Name="APELLIDOS" Type="char" MaxLength="50" />
-    <Property Name="USER" Type="char" MaxLength="50" Nullable="false" />
-    <Property Name="PASSWORD" Type="char" MaxLength="255" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+    <Property Name="APELLIDOS" Type="varchar" MaxLength="50" />
+    <Property Name="USER" Type="varchar" MaxLength="50" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="60" />
     <Property Name="USUARIO_INSERT" Type="int" />
     <Property Name="FECHA_INSERT" Type="datetime" />
     <Property Name="FECHA_UPDATE" Type="datetime" />
@@ -249,6 +250,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="SP_TB_CUENTAS_BANCARIAS_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_tipo_cuenta" Type="decimal" Mode="In" />
+    <Parameter Name="id_banco" Type="decimal" Mode="In" />
+    <Parameter Name="saldo" Type="float" Mode="In" />
+  </Function>
+  <Function Name="SP_TB_CUENTAS_BANCARIAS_UPDATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_cuenta_bancaria" Type="decimal" Mode="In" />
+    <Parameter Name="numero_cuenta" Type="varchar" Mode="In" />
+    <Parameter Name="id_tipo_cuenta" Type="decimal" Mode="In" />
+    <Parameter Name="id_banco" Type="decimal" Mode="In" />
+    <Parameter Name="saldo" Type="float" Mode="In" />
+  </Function>
   <EntityContainer Name="DB_FLUJOCAJAModelStoreContainer">
     <EntitySet Name="RL_ROL_PERMISO" EntityType="Self.RL_ROL_PERMISO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RL_USUARIO_ROL" EntityType="Self.RL_USUARIO_ROL" Schema="dbo" store:Type="Tables" />

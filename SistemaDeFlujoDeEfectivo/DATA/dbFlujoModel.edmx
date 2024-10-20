@@ -26,8 +26,8 @@
             <PropertyRef Name="ID_BANCO" />
           </Key>
           <Property Name="ID_BANCO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NOMBRE" Type="char" MaxLength="50" />
-          <Property Name="DESCRIPCION" Type="char" MaxLength="255" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
           <Property Name="USUARIO_INSERT" Type="int" />
           <Property Name="FECHA_INSERT" Type="datetime" />
         </EntityType>
@@ -37,8 +37,8 @@
           </Key>
           <Property Name="ID_CATEGORIA" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_TIPO_FLUJO" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="NOMBRE" Type="char" MaxLength="50" />
-          <Property Name="DESCRIPCION" Type="char" MaxLength="255" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
           <Property Name="USUARIO_INSERT" Type="int" />
           <Property Name="FECHA_INSERT" Type="datetime" />
         </EntityType>
@@ -54,6 +54,7 @@
           <Property Name="SALDO" Type="float" />
           <Property Name="USUARIO_INSERT" Type="int" />
           <Property Name="FECHA_INSERT" Type="datetime" />
+          <Property Name="NUMERO_CUENTA" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="TB_HISTORIAL_ACCIONES">
           <Key>
@@ -61,7 +62,7 @@
           </Key>
           <Property Name="ID_HISTORIAL" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_USUARIO" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="URL" Type="char" MaxLength="255" />
+          <Property Name="URL" Type="varchar" MaxLength="255" />
           <Property Name="FECHA" Type="datetime" />
         </EntityType>
         <EntityType Name="TB_OPERACIONES">
@@ -77,7 +78,7 @@
           <Property Name="ID_OPERACION" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_CATEGORIA" Type="numeric" Precision="18" Scale="0" />
           <Property Name="MONTO" Type="float" />
-          <Property Name="DESCRIPCION" Type="char" MaxLength="255" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
           <Property Name="USUARIO_INSERT" Type="int" />
           <Property Name="FECHA_INSERT" Type="datetime" />
         </EntityType>
@@ -86,7 +87,7 @@
             <PropertyRef Name="ID_PERMISO" />
           </Key>
           <Property Name="ID_PERMISO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="char" MaxLength="255" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
           <Property Name="VIEW" Type="char" MaxLength="50" />
           <Property Name="URL" Type="char" MaxLength="255" />
         </EntityType>
@@ -95,15 +96,15 @@
             <PropertyRef Name="ID_ROL" />
           </Key>
           <Property Name="ID_ROL" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NOMBRE" Type="char" MaxLength="50" />
-          <Property Name="DESCRIPCION" Type="char" MaxLength="255" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="TB_TIPOS_CUENTAS">
           <Key>
             <PropertyRef Name="ID_TIPO_CUENTA" />
           </Key>
           <Property Name="ID_TIPO_CUENTA" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NOMBRE" Type="char" MaxLength="50" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
           <Property Name="USUARIO_INSERT" Type="int" />
           <Property Name="FECHA_INSERT" Type="datetime" />
         </EntityType>
@@ -112,8 +113,8 @@
             <PropertyRef Name="ID_TIPO_FLUJO" />
           </Key>
           <Property Name="ID_TIPO_FLUJO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NOMBRE" Type="char" MaxLength="50" />
-          <Property Name="DESCRIPCION" Type="char" MaxLength="255" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
           <Property Name="USUARIO_INSERT" Type="int" />
           <Property Name="FECHA_INSERT" Type="datetime" />
         </EntityType>
@@ -122,10 +123,10 @@
             <PropertyRef Name="ID_USUARIO" />
           </Key>
           <Property Name="ID_USUARIO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NOMBRE" Type="char" MaxLength="50" />
-          <Property Name="APELLIDOS" Type="char" MaxLength="50" />
-          <Property Name="USER" Type="char" MaxLength="50" Nullable="false" />
-          <Property Name="PASSWORD" Type="char" MaxLength="255" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+          <Property Name="APELLIDOS" Type="varchar" MaxLength="50" />
+          <Property Name="USER" Type="varchar" MaxLength="50" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="60" />
           <Property Name="USUARIO_INSERT" Type="int" />
           <Property Name="FECHA_INSERT" Type="datetime" />
           <Property Name="FECHA_UPDATE" Type="datetime" />
@@ -254,6 +255,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="SP_TB_CUENTAS_BANCARIAS_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_tipo_cuenta" Type="decimal" Mode="In" />
+          <Parameter Name="id_banco" Type="decimal" Mode="In" />
+          <Parameter Name="saldo" Type="float" Mode="In" />
+        </Function>
+        <Function Name="SP_TB_CUENTAS_BANCARIAS_UPDATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_cuenta_bancaria" Type="decimal" Mode="In" />
+          <Parameter Name="numero_cuenta" Type="varchar" Mode="In" />
+          <Parameter Name="id_tipo_cuenta" Type="decimal" Mode="In" />
+          <Parameter Name="id_banco" Type="decimal" Mode="In" />
+          <Parameter Name="saldo" Type="float" Mode="In" />
+        </Function>
         <EntityContainer Name="DB_FLUJOCAJAModelStoreContainer">
           <EntitySet Name="RL_ROL_PERMISO" EntityType="Self.RL_ROL_PERMISO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RL_USUARIO_ROL" EntityType="Self.RL_USUARIO_ROL" Schema="dbo" store:Type="Tables" />
@@ -317,8 +330,8 @@
             <PropertyRef Name="ID_BANCO" />
           </Key>
           <Property Name="ID_BANCO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="USUARIO_INSERT" Type="Int32" />
           <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
           <NavigationProperty Name="TB_CUENTAS_BANCARIAS" Relationship="Self.FK_TB_CUENT_RL_CUENTA_TB_BANCO" FromRole="TB_BANCOS" ToRole="TB_CUENTAS_BANCARIAS" />
@@ -329,8 +342,8 @@
           </Key>
           <Property Name="ID_CATEGORIA" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_TIPO_FLUJO" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="USUARIO_INSERT" Type="Int32" />
           <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
           <NavigationProperty Name="TB_TIPOS_FLUJOS" Relationship="Self.FK_TB_CATEG_RL_CATEGO_TB_TIPOS" FromRole="TB_CATEGORIAS" ToRole="TB_TIPOS_FLUJOS" />
@@ -351,6 +364,7 @@
           <NavigationProperty Name="TB_BANCOS" Relationship="Self.FK_TB_CUENT_RL_CUENTA_TB_BANCO" FromRole="TB_CUENTAS_BANCARIAS" ToRole="TB_BANCOS" />
           <NavigationProperty Name="TB_TIPOS_CUENTAS" Relationship="Self.FK_TB_CUENT_RL_CUENTA_TB_TIPOS" FromRole="TB_CUENTAS_BANCARIAS" ToRole="TB_TIPOS_CUENTAS" />
           <NavigationProperty Name="TB_OPERACIONES" Relationship="Self.FK_TB_OPERA_RL_OPERAC_TB_CUENT" FromRole="TB_CUENTAS_BANCARIAS" ToRole="TB_OPERACIONES" />
+          <Property Name="NUMERO_CUENTA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TB_HISTORIAL_ACCIONES">
           <Key>
@@ -358,7 +372,7 @@
           </Key>
           <Property Name="ID_HISTORIAL" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_USUARIO" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="URL" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
+          <Property Name="URL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="FECHA" Type="DateTime" Precision="3" />
           <NavigationProperty Name="TB_USUARIO" Relationship="Self.FK_TB_HISTO_RL_USUARI_TB_USUAR" FromRole="TB_HISTORIAL_ACCIONES" ToRole="TB_USUARIO" />
         </EntityType>
@@ -375,7 +389,7 @@
           <Property Name="ID_OPERACION" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_CATEGORIA" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="MONTO" Type="Double" />
-          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="USUARIO_INSERT" Type="Int32" />
           <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
           <NavigationProperty Name="TB_CATEGORIAS" Relationship="Self.FK_TB_OPERA_RL_OPERAC_TB_CATEG" FromRole="TB_OPERACIONES" ToRole="TB_CATEGORIAS" />
@@ -386,7 +400,7 @@
             <PropertyRef Name="ID_PERMISO" />
           </Key>
           <Property Name="ID_PERMISO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="VIEW" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
           <Property Name="URL" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="TB_ROLES" Relationship="Self.RL_ROL_PERMISO" FromRole="TB_PERMISOS" ToRole="TB_ROLES" />
@@ -396,8 +410,8 @@
             <PropertyRef Name="ID_ROL" />
           </Key>
           <Property Name="ID_ROL" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TB_PERMISOS" Relationship="Self.RL_ROL_PERMISO" FromRole="TB_ROLES" ToRole="TB_PERMISOS" />
           <NavigationProperty Name="TB_USUARIO" Relationship="Self.RL_USUARIO_ROL" FromRole="TB_ROLES" ToRole="TB_USUARIO" />
         </EntityType>
@@ -406,7 +420,7 @@
             <PropertyRef Name="ID_TIPO_CUENTA" />
           </Key>
           <Property Name="ID_TIPO_CUENTA" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="USUARIO_INSERT" Type="Int32" />
           <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
           <NavigationProperty Name="TB_CUENTAS_BANCARIAS" Relationship="Self.FK_TB_CUENT_RL_CUENTA_TB_TIPOS" FromRole="TB_TIPOS_CUENTAS" ToRole="TB_CUENTAS_BANCARIAS" />
@@ -416,8 +430,8 @@
             <PropertyRef Name="ID_TIPO_FLUJO" />
           </Key>
           <Property Name="ID_TIPO_FLUJO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="USUARIO_INSERT" Type="Int32" />
           <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
           <NavigationProperty Name="TB_CATEGORIAS" Relationship="Self.FK_TB_CATEG_RL_CATEGO_TB_TIPOS" FromRole="TB_TIPOS_FLUJOS" ToRole="TB_CATEGORIAS" />
@@ -427,10 +441,10 @@
             <PropertyRef Name="ID_USUARIO" />
           </Key>
           <Property Name="ID_USUARIO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="APELLIDOS" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="USER" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="PASSWORD" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="APELLIDOS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="USUARIO_INSERT" Type="Int32" />
           <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
           <Property Name="FECHA_UPDATE" Type="DateTime" Precision="3" />
@@ -564,6 +578,18 @@
             <End Role="TB_ROLES" EntitySet="TB_ROLES" />
             <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
           </AssociationSet>
+          <FunctionImport Name="SP_TB_CUENTAS_BANCARIAS_INSERT">
+            <Parameter Name="id_tipo_cuenta" Mode="In" Type="Decimal" />
+            <Parameter Name="id_banco" Mode="In" Type="Decimal" />
+            <Parameter Name="saldo" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="SP_TB_CUENTAS_BANCARIAS_UPDATE">
+            <Parameter Name="id_cuenta_bancaria" Mode="In" Type="Decimal" />
+            <Parameter Name="numero_cuenta" Mode="In" Type="String" />
+            <Parameter Name="id_tipo_cuenta" Mode="In" Type="Decimal" />
+            <Parameter Name="id_banco" Mode="In" Type="Decimal" />
+            <Parameter Name="saldo" Mode="In" Type="Double" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -597,6 +623,7 @@
           <EntitySetMapping Name="TB_CUENTAS_BANCARIAS">
             <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_CUENTAS_BANCARIAS">
               <MappingFragment StoreEntitySet="TB_CUENTAS_BANCARIAS">
+                <ScalarProperty Name="NUMERO_CUENTA" ColumnName="NUMERO_CUENTA" />
                 <ScalarProperty Name="ID_TIPO_CUENTA" ColumnName="ID_TIPO_CUENTA" />
                 <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
                 <ScalarProperty Name="ID_CUENTA_BANCARIA" ColumnName="ID_CUENTA_BANCARIA" />
@@ -701,6 +728,8 @@
               <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="SP_TB_CUENTAS_BANCARIAS_INSERT" FunctionName="DB_FLUJOCAJAModel.Store.SP_TB_CUENTAS_BANCARIAS_INSERT" />
+          <FunctionImportMapping FunctionImportName="SP_TB_CUENTAS_BANCARIAS_UPDATE" FunctionName="DB_FLUJOCAJAModel.Store.SP_TB_CUENTAS_BANCARIAS_UPDATE" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

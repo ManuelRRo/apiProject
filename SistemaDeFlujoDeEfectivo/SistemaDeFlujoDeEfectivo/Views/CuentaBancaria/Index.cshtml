@@ -32,12 +32,14 @@
 <br />
 
 <div class="row">
+    
     <div class="col-md-7 bordered-tablee-container">
         <h4 class="background-table-headerr">Cuentas Bancarias Disponibles</h4>
         <table class="table">
             <tr>
-                <th>ID</th>
-                <th>Cuenta</th>
+                <th></th>
+                <th>Numero Cuenta</th>
+                <th>Tipo</th>
                 <th>Banco</th>
                 <th>Saldo</th>
                 <th>Acciones</th>
@@ -45,13 +47,14 @@
             @foreach (var e in Model.CuentasBancarias)
             {
                 <tr>
-                    <td>@e.id_tipo_cuenta</td>
+                    <td>@Html.Hidden(e.id_cuenta_bancaria.ToString())</td>
+                    <td>@e.numero_cuenta</td>
                     <td>@e.cuenta.NOMBRE</td>
                     <td>@e.banco.NOMBRE</td>
-                    <td>@e.saldo</td>
+                    <td>$@e.saldo</td>
                     <td>
-                        <a class="btn btn-primary" href="~/Banco/Index/@e.id_tipo_cuenta">Editar</a>
-                        <a class="btn btn-danger" href="~/Banco/Eliminar/@e.id_tipo_cuenta">Eliminar</a>
+                        <a class="btn btn-primary" href="~/CuentaBancaria/Index/@e.id_cuenta_bancaria">Editar</a>
+                        <a class="btn btn-danger" href="~/CuentaBancaria/Eliminar/@e.id_cuenta_bancaria">Eliminar</a>
                     </td>
                 </tr>
             }
@@ -62,20 +65,20 @@
         <h4 class="background-form-headerr">Nuevo Registro de Cuenta Bancaria</h4>
         @using (Html.BeginForm("Index", "CuentaBancaria", FormMethod.Post))
         {
-            @Html.HiddenFor(d => d.cuentaBancaria.id_tipo_cuenta)
+            @Html.HiddenFor(d => d.cuentaBancaria.id_cuenta_bancaria)
             <span>Número de cuenta</span>
-            <input type="text" placeholder="Tipo de cuenta" class="form-control" />
+            @Html.TextBoxFor(d => d.cuentaBancaria.numeroCuenta, new { @class = "form-control" })
             <br />
             <span>Tipo de Cuenta</span>
-            <input type="text" placeholder="Tipo de cuenta" class="form-control" />
+            @Html.DropDownListFor(d => d.cuentaBancaria.id_tipo_cuenta, (SelectList)ViewBag.TipoCuentas, new { @class = "form-control" })
             <br />
             <span class="">Banco</span>
-            @Html.DropDownList("Bancos", null, "Seleccionar Banco", new { @class = "form-control" })
+            @Html.DropDownListFor(d => d.cuentaBancaria.id_banco, (SelectList)ViewBag.Bancos, new { @class = "form-control" })
             <br />
             <span>Saldo</span>
             @Html.TextBoxFor(d => d.cuentaBancaria.saldo, new { @class = "form-control" })
             <br />
-            <input type="submit" value="Guardar" class="btn btn-success"/>
+            <input type="submit" value="Guardar" class="btn btn-success" />
         }
     </div>
 </div>

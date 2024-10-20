@@ -27,6 +27,7 @@
     <EntitySetMapping Name="TB_CUENTAS_BANCARIAS">
       <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_CUENTAS_BANCARIAS">
         <MappingFragment StoreEntitySet="TB_CUENTAS_BANCARIAS">
+          <ScalarProperty Name="NUMERO_CUENTA" ColumnName="NUMERO_CUENTA" />
           <ScalarProperty Name="ID_TIPO_CUENTA" ColumnName="ID_TIPO_CUENTA" />
           <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
           <ScalarProperty Name="ID_CUENTA_BANCARIA" ColumnName="ID_CUENTA_BANCARIA" />
@@ -131,5 +132,7 @@
         <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
       </EndProperty>
     </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="SP_TB_CUENTAS_BANCARIAS_INSERT" FunctionName="DB_FLUJOCAJAModel.Store.SP_TB_CUENTAS_BANCARIAS_INSERT" />
+    <FunctionImportMapping FunctionImportName="SP_TB_CUENTAS_BANCARIAS_UPDATE" FunctionName="DB_FLUJOCAJAModel.Store.SP_TB_CUENTAS_BANCARIAS_UPDATE" />
   </EntityContainerMapping>
 </Mapping>

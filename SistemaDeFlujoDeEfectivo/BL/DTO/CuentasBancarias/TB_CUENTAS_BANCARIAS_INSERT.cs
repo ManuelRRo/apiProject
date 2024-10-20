@@ -11,12 +11,15 @@ namespace BL.DTO
 {
     public class TB_CUENTAS_BANCARIAS_INSERT
     {
-        public Decimal id_tipo_cuenta { get; set; }
+        public decimal id_cuenta_bancaria { get; set; }
         [Required]
-        public TB_BANCOS banco { get; set; }
+        public decimal id_tipo_cuenta { get; set; }
         [Required]
-        public TB_TIPOS_CUENTAS cuenta { get; set; }
+        public decimal id_banco {  get; set; }
         [Required]
         public double? saldo { get; set; }
+
+        [Required]
+        public string numeroCuenta { get; set; }
     }
 }

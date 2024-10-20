@@ -26,6 +26,7 @@ namespace DATA
         public Nullable<double> SALDO { get; set; }
         public Nullable<int> USUARIO_INSERT { get; set; }
         public Nullable<System.DateTime> FECHA_INSERT { get; set; }
+        public string NUMERO_CUENTA { get; set; }
     
         public virtual TB_BANCOS TB_BANCOS { get; set; }
         public virtual TB_TIPOS_CUENTAS TB_TIPOS_CUENTAS { get; set; }
