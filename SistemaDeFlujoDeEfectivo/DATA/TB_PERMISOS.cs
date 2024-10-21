@@ -24,6 +24,7 @@ namespace DATA
         public string DESCRIPCION { get; set; }
         public string VIEW { get; set; }
         public string URL { get; set; }
+        public Nullable<bool> IS_ACTIVE { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TB_ROLES> TB_ROLES { get; set; }
