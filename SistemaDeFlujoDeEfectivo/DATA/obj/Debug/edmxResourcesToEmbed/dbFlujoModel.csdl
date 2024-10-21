@@ -10,6 +10,7 @@
     <Property Name="USUARIO_INSERT" Type="Int32" />
     <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
     <NavigationProperty Name="TB_CUENTAS_BANCARIAS" Relationship="Self.FK_TB_CUENT_RL_CUENTA_TB_BANCO" FromRole="TB_BANCOS" ToRole="TB_CUENTAS_BANCARIAS" />
+    <Property Name="IS_ACTIVE" Type="Boolean" />
   </EntityType>
   <EntityType Name="TB_CATEGORIAS">
     <Key>
@@ -23,6 +24,7 @@
     <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
     <NavigationProperty Name="TB_TIPOS_FLUJOS" Relationship="Self.FK_TB_CATEG_RL_CATEGO_TB_TIPOS" FromRole="TB_CATEGORIAS" ToRole="TB_TIPOS_FLUJOS" />
     <NavigationProperty Name="TB_OPERACIONES" Relationship="Self.FK_TB_OPERA_RL_OPERAC_TB_CATEG" FromRole="TB_CATEGORIAS" ToRole="TB_OPERACIONES" />
+    <Property Name="IS_ACTIVE" Type="Boolean" />
   </EntityType>
   <EntityType Name="TB_CUENTAS_BANCARIAS">
     <Key>
@@ -40,6 +42,7 @@
     <NavigationProperty Name="TB_TIPOS_CUENTAS" Relationship="Self.FK_TB_CUENT_RL_CUENTA_TB_TIPOS" FromRole="TB_CUENTAS_BANCARIAS" ToRole="TB_TIPOS_CUENTAS" />
     <NavigationProperty Name="TB_OPERACIONES" Relationship="Self.FK_TB_OPERA_RL_OPERAC_TB_CUENT" FromRole="TB_CUENTAS_BANCARIAS" ToRole="TB_OPERACIONES" />
     <Property Name="NUMERO_CUENTA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IS_ACTIVE" Type="Boolean" />
   </EntityType>
   <EntityType Name="TB_HISTORIAL_ACCIONES">
     <Key>
@@ -50,6 +53,7 @@
     <Property Name="URL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="FECHA" Type="DateTime" Precision="3" />
     <NavigationProperty Name="TB_USUARIO" Relationship="Self.FK_TB_HISTO_RL_USUARI_TB_USUAR" FromRole="TB_HISTORIAL_ACCIONES" ToRole="TB_USUARIO" />
+    <Property Name="IS_ACTIVE" Type="Boolean" />
   </EntityType>
   <EntityType Name="TB_OPERACIONES">
     <Key>
@@ -69,6 +73,8 @@
     <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
     <NavigationProperty Name="TB_CATEGORIAS" Relationship="Self.FK_TB_OPERA_RL_OPERAC_TB_CATEG" FromRole="TB_OPERACIONES" ToRole="TB_CATEGORIAS" />
     <NavigationProperty Name="TB_CUENTAS_BANCARIAS" Relationship="Self.FK_TB_OPERA_RL_OPERAC_TB_CUENT" FromRole="TB_OPERACIONES" ToRole="TB_CUENTAS_BANCARIAS" />
+    <Property Name="IS_ACTIVE" Type="Boolean" />
+    <Property Name="APROBADO" Type="Boolean" />
   </EntityType>
   <EntityType Name="TB_PERMISOS">
     <Key>
@@ -79,6 +85,7 @@
     <Property Name="VIEW" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
     <Property Name="URL" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="TB_ROLES" Relationship="Self.RL_ROL_PERMISO" FromRole="TB_PERMISOS" ToRole="TB_ROLES" />
+    <Property Name="IS_ACTIVE" Type="Boolean" />
   </EntityType>
   <EntityType Name="TB_ROLES">
     <Key>
@@ -89,6 +96,7 @@
     <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="TB_PERMISOS" Relationship="Self.RL_ROL_PERMISO" FromRole="TB_ROLES" ToRole="TB_PERMISOS" />
     <NavigationProperty Name="TB_USUARIO" Relationship="Self.RL_USUARIO_ROL" FromRole="TB_ROLES" ToRole="TB_USUARIO" />
+    <Property Name="IS_ACTIVE" Type="Boolean" />
   </EntityType>
   <EntityType Name="TB_TIPOS_CUENTAS">
     <Key>
@@ -99,6 +107,7 @@
     <Property Name="USUARIO_INSERT" Type="Int32" />
     <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
     <NavigationProperty Name="TB_CUENTAS_BANCARIAS" Relationship="Self.FK_TB_CUENT_RL_CUENTA_TB_TIPOS" FromRole="TB_TIPOS_CUENTAS" ToRole="TB_CUENTAS_BANCARIAS" />
+    <Property Name="IS_ACTIVE" Type="Boolean" />
   </EntityType>
   <EntityType Name="TB_TIPOS_FLUJOS">
     <Key>
@@ -110,6 +119,7 @@
     <Property Name="USUARIO_INSERT" Type="Int32" />
     <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
     <NavigationProperty Name="TB_CATEGORIAS" Relationship="Self.FK_TB_CATEG_RL_CATEGO_TB_TIPOS" FromRole="TB_TIPOS_FLUJOS" ToRole="TB_CATEGORIAS" />
+    <Property Name="IS_ACTIVE" Type="Boolean" />
   </EntityType>
   <EntityType Name="TB_USUARIO">
     <Key>
@@ -125,6 +135,7 @@
     <Property Name="FECHA_UPDATE" Type="DateTime" Precision="3" />
     <NavigationProperty Name="TB_HISTORIAL_ACCIONES" Relationship="Self.FK_TB_HISTO_RL_USUARI_TB_USUAR" FromRole="TB_USUARIO" ToRole="TB_HISTORIAL_ACCIONES" />
     <NavigationProperty Name="TB_ROLES" Relationship="Self.RL_USUARIO_ROL" FromRole="TB_USUARIO" ToRole="TB_ROLES" />
+    <Property Name="IS_ACTIVE" Type="Boolean" />
   </EntityType>
   <Association Name="FK_TB_CUENT_RL_CUENTA_TB_BANCO">
     <End Role="TB_BANCOS" Type="Self.TB_BANCOS" Multiplicity="1" />
@@ -257,6 +268,7 @@
       <Parameter Name="id_tipo_cuenta" Mode="In" Type="Decimal" />
       <Parameter Name="id_banco" Mode="In" Type="Decimal" />
       <Parameter Name="saldo" Mode="In" Type="Double" />
+      <Parameter Name="numero_cuenta" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="SP_TB_CUENTAS_BANCARIAS_UPDATE">
       <Parameter Name="id_cuenta_bancaria" Mode="In" Type="Decimal" />

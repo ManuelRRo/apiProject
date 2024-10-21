@@ -38,7 +38,7 @@ namespace DATA
         public virtual DbSet<TB_TIPOS_FLUJOS> TB_TIPOS_FLUJOS { get; set; }
         public virtual DbSet<TB_USUARIO> TB_USUARIO { get; set; }
     
-        public virtual int SP_TB_CUENTAS_BANCARIAS_INSERT(Nullable<decimal> id_tipo_cuenta, Nullable<decimal> id_banco, Nullable<double> saldo)
+        public virtual int SP_TB_CUENTAS_BANCARIAS_INSERT(Nullable<decimal> id_tipo_cuenta, Nullable<decimal> id_banco, Nullable<double> saldo, string numero_cuenta)
         {
             var id_tipo_cuentaParameter = id_tipo_cuenta.HasValue ?
                 new ObjectParameter("id_tipo_cuenta", id_tipo_cuenta) :
@@ -52,7 +52,11 @@ namespace DATA
                 new ObjectParameter("saldo", saldo) :
                 new ObjectParameter("saldo", typeof(double));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_TB_CUENTAS_BANCARIAS_INSERT", id_tipo_cuentaParameter, id_bancoParameter, saldoParameter);
+            var numero_cuentaParameter = numero_cuenta != null ?
+                new ObjectParameter("numero_cuenta", numero_cuenta) :
+                new ObjectParameter("numero_cuenta", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_TB_CUENTAS_BANCARIAS_INSERT", id_tipo_cuentaParameter, id_bancoParameter, saldoParameter, numero_cuentaParameter);
         }
     
         public virtual int SP_TB_CUENTAS_BANCARIAS_UPDATE(Nullable<decimal> id_cuenta_bancaria, string numero_cuenta, Nullable<decimal> id_tipo_cuenta, Nullable<decimal> id_banco, Nullable<double> saldo)

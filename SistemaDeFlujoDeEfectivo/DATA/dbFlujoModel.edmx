@@ -272,6 +272,7 @@
           <Parameter Name="id_tipo_cuenta" Type="decimal" Mode="In" />
           <Parameter Name="id_banco" Type="decimal" Mode="In" />
           <Parameter Name="saldo" Type="float" Mode="In" />
+          <Parameter Name="numero_cuenta" Type="varchar" Mode="In" />
         </Function>
         <Function Name="SP_TB_CUENTAS_BANCARIAS_UPDATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_cuenta_bancaria" Type="decimal" Mode="In" />
@@ -606,6 +607,7 @@
             <Parameter Name="id_tipo_cuenta" Mode="In" Type="Decimal" />
             <Parameter Name="id_banco" Mode="In" Type="Decimal" />
             <Parameter Name="saldo" Mode="In" Type="Double" />
+            <Parameter Name="numero_cuenta" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_TB_CUENTAS_BANCARIAS_UPDATE">
             <Parameter Name="id_cuenta_bancaria" Mode="In" Type="Decimal" />
