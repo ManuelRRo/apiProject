@@ -1,12 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "\\\\Meme-hp\\2-ues-2024\\ProyectoAPI2024\\SistemaDeFlujoDeEfectivo\\",
+  "WorkspaceRootPath": "C:\\Users\\Edenilson Molina\\Desktop\\Proyecto de API\\apiProject\\SistemaDeFlujoDeEfectivo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CBD3F808-589A-41C8-A46F-F41396B712B5}|DATA\\DATA.csproj|\\\\meme-hp\\2-ues-2024\\proyectoapi2024\\sistemadeflujodeefectivo\\data\\dbflujomodel.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+      "AbsoluteMoniker": "D:0:0:{974E394F-5BF5-4C2E-B383-14E2636C97AB}|SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo.csproj|c:\\users\\edenilson molina\\desktop\\proyecto de api\\apiproject\\sistemadeflujodeefectivo\\sistemadeflujodeefectivo\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{974E394F-5BF5-4C2E-B383-14E2636C97AB}|SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo.csproj|solutionrelative:sistemadeflujodeefectivo\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CBD3F808-589A-41C8-A46F-F41396B712B5}|DATA\\DATA.csproj|\\\\meme-hp\\2-ues-2024\\proyectoapi2024\\sistemadeflujodeefectivo\\data\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{974E394F-5BF5-4C2E-B383-14E2636C97AB}|SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo.csproj|c:\\users\\edenilson molina\\desktop\\proyecto de api\\apiproject\\sistemadeflujodeefectivo\\sistemadeflujodeefectivo\\content\\bootstrap.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{974E394F-5BF5-4C2E-B383-14E2636C97AB}|SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo.csproj|solutionrelative:sistemadeflujodeefectivo\\content\\bootstrap.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{974E394F-5BF5-4C2E-B383-14E2636C97AB}|SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo.csproj|c:\\users\\edenilson molina\\desktop\\proyecto de api\\apiproject\\sistemadeflujodeefectivo\\sistemadeflujodeefectivo\\content\\bootstrap-theme.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{974E394F-5BF5-4C2E-B383-14E2636C97AB}|SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo.csproj|solutionrelative:sistemadeflujodeefectivo\\content\\bootstrap-theme.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{974E394F-5BF5-4C2E-B383-14E2636C97AB}|SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo.csproj|c:\\users\\edenilson molina\\desktop\\proyecto de api\\apiproject\\sistemadeflujodeefectivo\\sistemadeflujodeefectivo\\views\\cuentabancaria\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{974E394F-5BF5-4C2E-B383-14E2636C97AB}|SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo.csproj|solutionrelative:sistemadeflujodeefectivo\\views\\cuentabancaria\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{974E394F-5BF5-4C2E-B383-14E2636C97AB}|SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo.csproj|c:\\users\\edenilson molina\\desktop\\proyecto de api\\apiproject\\sistemadeflujodeefectivo\\sistemadeflujodeefectivo\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{974E394F-5BF5-4C2E-B383-14E2636C97AB}|SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo.csproj|solutionrelative:sistemadeflujodeefectivo\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{974E394F-5BF5-4C2E-B383-14E2636C97AB}|SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo.csproj|c:\\users\\edenilson molina\\desktop\\proyecto de api\\apiproject\\sistemadeflujodeefectivo\\sistemadeflujodeefectivo\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{974E394F-5BF5-4C2E-B383-14E2636C97AB}|SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo.csproj|solutionrelative:sistemadeflujodeefectivo\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,26 +39,79 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "dbFlujoModel.edmx [Diagram1]",
-              "DocumentMoniker": "\\\\Meme-hp\\2-ues-2024\\ProyectoAPI2024\\SistemaDeFlujoDeEfectivo\\DATA\\dbFlujoModel.edmx",
-              "RelativeDocumentMoniker": "DATA\\dbFlujoModel.edmx",
-              "ToolTip": "\\\\Meme-hp\\2-ues-2024\\ProyectoAPI2024\\SistemaDeFlujoDeEfectivo\\DATA\\dbFlujoModel.edmx [Diagram1]",
-              "RelativeToolTip": "DATA\\dbFlujoModel.edmx [Diagram1]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
-              "WhenOpened": "2024-10-03T02:29:05.031Z",
-              "EditorCaption": " [Diagram1]"
+              "Title": "Site.css",
+              "DocumentMoniker": "C:\\Users\\Edenilson Molina\\Desktop\\Proyecto de API\\apiProject\\SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo\\Content\\Site.css",
+              "RelativeDocumentMoniker": "SistemaDeFlujoDeEfectivo\\Content\\Site.css",
+              "ToolTip": "C:\\Users\\Edenilson Molina\\Desktop\\Proyecto de API\\apiProject\\SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo\\Content\\Site.css",
+              "RelativeToolTip": "SistemaDeFlujoDeEfectivo\\Content\\Site.css",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-21T02:46:35.091Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "\\\\Meme-hp\\2-ues-2024\\ProyectoAPI2024\\SistemaDeFlujoDeEfectivo\\DATA\\Class1.cs",
-              "RelativeDocumentMoniker": "DATA\\Class1.cs",
-              "ToolTip": "\\\\Meme-hp\\2-ues-2024\\ProyectoAPI2024\\SistemaDeFlujoDeEfectivo\\DATA\\Class1.cs",
-              "RelativeToolTip": "DATA\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T01:00:39.285Z",
+              "Title": "bootstrap.css",
+              "DocumentMoniker": "C:\\Users\\Edenilson Molina\\Desktop\\Proyecto de API\\apiProject\\SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo\\Content\\bootstrap.css",
+              "RelativeDocumentMoniker": "SistemaDeFlujoDeEfectivo\\Content\\bootstrap.css",
+              "ToolTip": "C:\\Users\\Edenilson Molina\\Desktop\\Proyecto de API\\apiProject\\SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo\\Content\\bootstrap.css",
+              "RelativeToolTip": "SistemaDeFlujoDeEfectivo\\Content\\bootstrap.css",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAywG8AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-21T02:45:42.583Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "bootstrap-theme.css",
+              "DocumentMoniker": "C:\\Users\\Edenilson Molina\\Desktop\\Proyecto de API\\apiProject\\SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo\\Content\\bootstrap-theme.css",
+              "RelativeDocumentMoniker": "SistemaDeFlujoDeEfectivo\\Content\\bootstrap-theme.css",
+              "ToolTip": "C:\\Users\\Edenilson Molina\\Desktop\\Proyecto de API\\apiProject\\SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo\\Content\\bootstrap-theme.css",
+              "RelativeToolTip": "SistemaDeFlujoDeEfectivo\\Content\\bootstrap-theme.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-21T02:45:40.837Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Edenilson Molina\\Desktop\\Proyecto de API\\apiProject\\SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "SistemaDeFlujoDeEfectivo\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Edenilson Molina\\Desktop\\Proyecto de API\\apiProject\\SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "SistemaDeFlujoDeEfectivo\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAkAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-21T02:28:35.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Edenilson Molina\\Desktop\\Proyecto de API\\apiProject\\SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo\\Views\\CuentaBancaria\\Index.cshtml",
+              "RelativeDocumentMoniker": "SistemaDeFlujoDeEfectivo\\Views\\CuentaBancaria\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Edenilson Molina\\Desktop\\Proyecto de API\\apiProject\\SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo\\Views\\CuentaBancaria\\Index.cshtml",
+              "RelativeToolTip": "SistemaDeFlujoDeEfectivo\\Views\\CuentaBancaria\\Index.cshtml",
+              "ViewState": "AgIAACsAAAAAAAAAAAAuwC0AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-21T02:15:11.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\Edenilson Molina\\Desktop\\Proyecto de API\\apiProject\\SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo\\Web.config",
+              "RelativeDocumentMoniker": "SistemaDeFlujoDeEfectivo\\Web.config",
+              "ToolTip": "C:\\Users\\Edenilson Molina\\Desktop\\Proyecto de API\\apiProject\\SistemaDeFlujoDeEfectivo\\SistemaDeFlujoDeEfectivo\\Web.config",
+              "RelativeToolTip": "SistemaDeFlujoDeEfectivo\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAD6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-10-21T02:00:11.427Z",
               "EditorCaption": ""
             }
           ]

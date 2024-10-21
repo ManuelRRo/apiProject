@@ -10,3 +10,15 @@ C:\Users\ds239\source\repos\apiProject\SistemaDeFlujoDeEfectivo\DATA\obj\Debug\D
 C:\Users\ds239\source\repos\apiProject\SistemaDeFlujoDeEfectivo\DATA\obj\Debug\DATA.csproj.CopyComplete
 C:\Users\ds239\source\repos\apiProject\SistemaDeFlujoDeEfectivo\DATA\obj\Debug\DATA.dll
 C:\Users\ds239\source\repos\apiProject\SistemaDeFlujoDeEfectivo\DATA\obj\Debug\DATA.pdb
+C:\Users\Edenilson Molina\Desktop\Proyecto de API\apiProject\SistemaDeFlujoDeEfectivo\DATA\bin\Debug\DATA.dll.config
+C:\Users\Edenilson Molina\Desktop\Proyecto de API\apiProject\SistemaDeFlujoDeEfectivo\DATA\bin\Debug\DATA.dll
+C:\Users\Edenilson Molina\Desktop\Proyecto de API\apiProject\SistemaDeFlujoDeEfectivo\DATA\bin\Debug\DATA.pdb
+C:\Users\Edenilson Molina\Desktop\Proyecto de API\apiProject\SistemaDeFlujoDeEfectivo\DATA\bin\Debug\EntityFramework.dll
+C:\Users\Edenilson Molina\Desktop\Proyecto de API\apiProject\SistemaDeFlujoDeEfectivo\DATA\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Edenilson Molina\Desktop\Proyecto de API\apiProject\SistemaDeFlujoDeEfectivo\DATA\bin\Debug\EntityFramework.xml
+C:\Users\Edenilson Molina\Desktop\Proyecto de API\apiProject\SistemaDeFlujoDeEfectivo\DATA\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Edenilson Molina\Desktop\Proyecto de API\apiProject\SistemaDeFlujoDeEfectivo\DATA\obj\Debug\DATA.csproj.AssemblyReference.cache
+C:\Users\Edenilson Molina\Desktop\Proyecto de API\apiProject\SistemaDeFlujoDeEfectivo\DATA\obj\Debug\DATA.csproj.CoreCompileInputs.cache
+C:\Users\Edenilson Molina\Desktop\Proyecto de API\apiProject\SistemaDeFlujoDeEfectivo\DATA\obj\Debug\DATA.csproj.Up2Date
+C:\Users\Edenilson Molina\Desktop\Proyecto de API\apiProject\SistemaDeFlujoDeEfectivo\DATA\obj\Debug\DATA.dll
+C:\Users\Edenilson Molina\Desktop\Proyecto de API\apiProject\SistemaDeFlujoDeEfectivo\DATA\obj\Debug\DATA.pdb

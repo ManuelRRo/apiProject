@@ -3,84 +3,66 @@
     ViewBag.Title = "Index";
 }
 
-<style>
-    .bordered-tablee-container {
-        border: 2px solid #337AB7; /* Color y grosor del borde */
-        border-radius: 5px; /* Opcional: bordes redondeados */
-    }
-    .bordered-formm-container {
-        border: 2px solid #D6E9C6; /* Color y grosor del borde */
-        padding: 15px;
-        border-radius: 5px; /* Opcional: bordes redondeados */
-        margin-left: 10px;
-    }
-    .background-table-headerr {
-        background-color: #337AB7;
-        color: white;
-        border-top-left-radius: 5px; /* Esquina superior izquierda */
-        border-top-right-radius: 5px; /* Esquina superior derecha */
-    }
-    .background-form-headerr {
-        background-color: #D6E9C6;
-        color: #3C763D;
-        border-top-left-radius: 5px; /* Esquina superior izquierda */
-        border-top-right-radius: 5px; /* Esquina superior derecha */
-        
-    }
-</style>
-
-<br />
-
-<div class="row">
-    
-    <div class="col-md-7 bordered-tablee-container">
-        <h4 class="background-table-headerr">Cuentas Bancarias Disponibles</h4>
-        <table class="table">
-            <tr>
-                <th></th>
-                <th>Numero Cuenta</th>
-                <th>Tipo</th>
-                <th>Banco</th>
-                <th>Saldo</th>
-                <th>Acciones</th>
-            </tr>
-            @foreach (var e in Model.CuentasBancarias)
+<div class="row">   
+    <section class="col-md-7">
+        <article class="panel panel-primary">
+            <header class="panel-heading">
+                <h4>Cuentas bancarias disponibles</h4>
+            </header>
+            <div class="panel-body table-responsive">
+                <table class="table table-hover">
+                    <tr>
+                        <th></th>
+                        <th>Número de cuenta</th>
+                        <th>Tipo</th>
+                        <th>Banco</th>
+                        <th>Saldo</th>
+                        <th>Acciones</th>
+                    </tr>
+                    @foreach (var e in Model.CuentasBancarias)
+                    {
+                        <tr>
+                            <td>@Html.Hidden(e.id_cuenta_bancaria.ToString())</td>
+                            <td>@e.numero_cuenta</td>
+                            <td>@e.cuenta.NOMBRE</td>
+                            <td>@e.banco.NOMBRE</td>
+                            <td>$@e.saldo</td>
+                            <td>
+                                <a class="btn btn-primary" href="~/CuentaBancaria/Index/@e.id_cuenta_bancaria">Editar</a>
+                                <a class="btn btn-danger" href="~/CuentaBancaria/Eliminar/@e.id_cuenta_bancaria">Eliminar</a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </article>
+    </section>
+    <section class="col-md-4">
+        <article class="panel panel-success">
+            <header class="panel-heading">
+                <h4>Nuevo registro de cuenta bancaria</h4>
+            </header>
+            <div class="panel-body">
+            @using (Html.BeginForm("Index", "CuentaBancaria", FormMethod.Post))
             {
-                <tr>
-                    <td>@Html.Hidden(e.id_cuenta_bancaria.ToString())</td>
-                    <td>@e.numero_cuenta</td>
-                    <td>@e.cuenta.NOMBRE</td>
-                    <td>@e.banco.NOMBRE</td>
-                    <td>$@e.saldo</td>
-                    <td>
-                        <a class="btn btn-primary" href="~/CuentaBancaria/Index/@e.id_cuenta_bancaria">Editar</a>
-                        <a class="btn btn-danger" href="~/CuentaBancaria/Eliminar/@e.id_cuenta_bancaria">Eliminar</a>
-                    </td>
-                </tr>
+                @Html.HiddenFor(d => d.cuentaBancaria.id_cuenta_bancaria)
+                <span>Número de cuenta</span>
+                @Html.TextBoxFor(d => d.cuentaBancaria.numeroCuenta, new { @class = "form-control" })
+                <br />
+                <span>Tipo de Cuenta</span>
+                @Html.DropDownListFor(d => d.cuentaBancaria.id_tipo_cuenta, (SelectList)ViewBag.TipoCuentas, new { @class = "form-control" })
+                <br />
+                <span class="">Banco</span>
+                @Html.DropDownListFor(d => d.cuentaBancaria.id_banco, (SelectList)ViewBag.Bancos, new { @class = "form-control" })
+                <br />
+                <span>Saldo</span>
+                @Html.TextBoxFor(d => d.cuentaBancaria.saldo, new { @class = "form-control", @type = "number", @step = "0.01", @min = "0" })
+                <br />
+                <input type="submit" value="Guardar" class="btn btn-success" />
             }
-
-        </table>
-    </div>
-    <div class="col-md-4 bordered-formm-container">
-        <h4 class="background-form-headerr">Nuevo Registro de Cuenta Bancaria</h4>
-        @using (Html.BeginForm("Index", "CuentaBancaria", FormMethod.Post))
-        {
-            @Html.HiddenFor(d => d.cuentaBancaria.id_cuenta_bancaria)
-            <span>Número de cuenta</span>
-            @Html.TextBoxFor(d => d.cuentaBancaria.numeroCuenta, new { @class = "form-control" })
-            <br />
-            <span>Tipo de Cuenta</span>
-            @Html.DropDownListFor(d => d.cuentaBancaria.id_tipo_cuenta, (SelectList)ViewBag.TipoCuentas, new { @class = "form-control" })
-            <br />
-            <span class="">Banco</span>
-            @Html.DropDownListFor(d => d.cuentaBancaria.id_banco, (SelectList)ViewBag.Bancos, new { @class = "form-control" })
-            <br />
-            <span>Saldo</span>
-            @Html.TextBoxFor(d => d.cuentaBancaria.saldo, new { @class = "form-control" })
-            <br />
-            <input type="submit" value="Guardar" class="btn btn-success" />
-        }
-    </div>
+            </div>
+        </article>
+    </section>
 </div>
 
 <script>
