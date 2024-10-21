@@ -34,7 +34,7 @@ namespace BL.ClaseBL
 
         public void insert(TB_CUENTAS_BANCARIAS_INSERT cuentaBancaria)
         {
-            db.SP_TB_CUENTAS_BANCARIAS_INSERT(cuentaBancaria.id_tipo_cuenta, cuentaBancaria.id_banco, cuentaBancaria.saldo);
+            db.SP_TB_CUENTAS_BANCARIAS_INSERT(cuentaBancaria.id_tipo_cuenta, cuentaBancaria.id_banco, cuentaBancaria.saldo,cuentaBancaria.numeroCuenta);
         }
 
         public TB_CUENTAS_BANCARIAS_INSERT getById(int ?id)

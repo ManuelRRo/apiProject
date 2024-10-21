@@ -23,6 +23,8 @@ namespace DATA
         public string DESCRIPCION { get; set; }
         public Nullable<int> USUARIO_INSERT { get; set; }
         public Nullable<System.DateTime> FECHA_INSERT { get; set; }
+        public Nullable<bool> IS_ACTIVE { get; set; }
+        public Nullable<bool> APROBADO { get; set; }
     
         public virtual TB_CATEGORIAS TB_CATEGORIAS { get; set; }
         public virtual TB_CUENTAS_BANCARIAS TB_CUENTAS_BANCARIAS { get; set; }

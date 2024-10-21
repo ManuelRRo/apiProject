@@ -24,6 +24,7 @@ namespace DATA
         public decimal ID_ROL { get; set; }
         public string NOMBRE { get; set; }
         public string DESCRIPCION { get; set; }
+        public Nullable<bool> IS_ACTIVE { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TB_PERMISOS> TB_PERMISOS { get; set; }

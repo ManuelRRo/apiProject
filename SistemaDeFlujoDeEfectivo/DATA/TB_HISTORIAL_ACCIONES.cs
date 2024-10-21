@@ -18,6 +18,7 @@ namespace DATA
         public Nullable<decimal> ID_USUARIO { get; set; }
         public string URL { get; set; }
         public Nullable<System.DateTime> FECHA { get; set; }
+        public Nullable<bool> IS_ACTIVE { get; set; }
     
         public virtual TB_USUARIO TB_USUARIO { get; set; }
     }

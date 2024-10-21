@@ -12,6 +12,7 @@
           </Key>
           <Property Name="ID_ROL" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="ID_PERMISO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="IS_ACTIVE" Type="bit" />
         </EntityType>
         <EntityType Name="RL_USUARIO_ROL">
           <Key>
@@ -20,6 +21,7 @@
           </Key>
           <Property Name="ID_USUARIO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="ID_ROL" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="IS_ACTIVE" Type="bit" />
         </EntityType>
         <EntityType Name="TB_BANCOS">
           <Key>
@@ -30,6 +32,7 @@
           <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
           <Property Name="USUARIO_INSERT" Type="int" />
           <Property Name="FECHA_INSERT" Type="datetime" />
+          <Property Name="IS_ACTIVE" Type="bit" />
         </EntityType>
         <EntityType Name="TB_CATEGORIAS">
           <Key>
@@ -41,6 +44,7 @@
           <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
           <Property Name="USUARIO_INSERT" Type="int" />
           <Property Name="FECHA_INSERT" Type="datetime" />
+          <Property Name="IS_ACTIVE" Type="bit" />
         </EntityType>
         <EntityType Name="TB_CUENTAS_BANCARIAS">
           <Key>
@@ -55,6 +59,7 @@
           <Property Name="USUARIO_INSERT" Type="int" />
           <Property Name="FECHA_INSERT" Type="datetime" />
           <Property Name="NUMERO_CUENTA" Type="varchar" MaxLength="20" />
+          <Property Name="IS_ACTIVE" Type="bit" />
         </EntityType>
         <EntityType Name="TB_HISTORIAL_ACCIONES">
           <Key>
@@ -64,6 +69,7 @@
           <Property Name="ID_USUARIO" Type="numeric" Precision="18" Scale="0" />
           <Property Name="URL" Type="varchar" MaxLength="255" />
           <Property Name="FECHA" Type="datetime" />
+          <Property Name="IS_ACTIVE" Type="bit" />
         </EntityType>
         <EntityType Name="TB_OPERACIONES">
           <Key>
@@ -81,6 +87,8 @@
           <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
           <Property Name="USUARIO_INSERT" Type="int" />
           <Property Name="FECHA_INSERT" Type="datetime" />
+          <Property Name="IS_ACTIVE" Type="bit" />
+          <Property Name="APROBADO" Type="bit" />
         </EntityType>
         <EntityType Name="TB_PERMISOS">
           <Key>
@@ -90,6 +98,7 @@
           <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
           <Property Name="VIEW" Type="char" MaxLength="50" />
           <Property Name="URL" Type="char" MaxLength="255" />
+          <Property Name="IS_ACTIVE" Type="bit" />
         </EntityType>
         <EntityType Name="TB_ROLES">
           <Key>
@@ -98,6 +107,7 @@
           <Property Name="ID_ROL" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
           <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
+          <Property Name="IS_ACTIVE" Type="bit" />
         </EntityType>
         <EntityType Name="TB_TIPOS_CUENTAS">
           <Key>
@@ -107,6 +117,7 @@
           <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
           <Property Name="USUARIO_INSERT" Type="int" />
           <Property Name="FECHA_INSERT" Type="datetime" />
+          <Property Name="IS_ACTIVE" Type="bit" />
         </EntityType>
         <EntityType Name="TB_TIPOS_FLUJOS">
           <Key>
@@ -117,6 +128,7 @@
           <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
           <Property Name="USUARIO_INSERT" Type="int" />
           <Property Name="FECHA_INSERT" Type="datetime" />
+          <Property Name="IS_ACTIVE" Type="bit" />
         </EntityType>
         <EntityType Name="TB_USUARIO">
           <Key>
@@ -130,6 +142,7 @@
           <Property Name="USUARIO_INSERT" Type="int" />
           <Property Name="FECHA_INSERT" Type="datetime" />
           <Property Name="FECHA_UPDATE" Type="datetime" />
+          <Property Name="IS_ACTIVE" Type="bit" />
         </EntityType>
         <Association Name="FK_RL_ROL_P_RL_ROL_PE_TB_PERMI">
           <End Role="TB_PERMISOS" Type="Self.TB_PERMISOS" Multiplicity="1" />
@@ -259,6 +272,7 @@
           <Parameter Name="id_tipo_cuenta" Type="decimal" Mode="In" />
           <Parameter Name="id_banco" Type="decimal" Mode="In" />
           <Parameter Name="saldo" Type="float" Mode="In" />
+          <Parameter Name="numero_cuenta" Type="varchar" Mode="In" />
         </Function>
         <Function Name="SP_TB_CUENTAS_BANCARIAS_UPDATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_cuenta_bancaria" Type="decimal" Mode="In" />
@@ -335,6 +349,7 @@
           <Property Name="USUARIO_INSERT" Type="Int32" />
           <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
           <NavigationProperty Name="TB_CUENTAS_BANCARIAS" Relationship="Self.FK_TB_CUENT_RL_CUENTA_TB_BANCO" FromRole="TB_BANCOS" ToRole="TB_CUENTAS_BANCARIAS" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
         </EntityType>
         <EntityType Name="TB_CATEGORIAS">
           <Key>
@@ -348,6 +363,7 @@
           <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
           <NavigationProperty Name="TB_TIPOS_FLUJOS" Relationship="Self.FK_TB_CATEG_RL_CATEGO_TB_TIPOS" FromRole="TB_CATEGORIAS" ToRole="TB_TIPOS_FLUJOS" />
           <NavigationProperty Name="TB_OPERACIONES" Relationship="Self.FK_TB_OPERA_RL_OPERAC_TB_CATEG" FromRole="TB_CATEGORIAS" ToRole="TB_OPERACIONES" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
         </EntityType>
         <EntityType Name="TB_CUENTAS_BANCARIAS">
           <Key>
@@ -365,6 +381,7 @@
           <NavigationProperty Name="TB_TIPOS_CUENTAS" Relationship="Self.FK_TB_CUENT_RL_CUENTA_TB_TIPOS" FromRole="TB_CUENTAS_BANCARIAS" ToRole="TB_TIPOS_CUENTAS" />
           <NavigationProperty Name="TB_OPERACIONES" Relationship="Self.FK_TB_OPERA_RL_OPERAC_TB_CUENT" FromRole="TB_CUENTAS_BANCARIAS" ToRole="TB_OPERACIONES" />
           <Property Name="NUMERO_CUENTA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
         </EntityType>
         <EntityType Name="TB_HISTORIAL_ACCIONES">
           <Key>
@@ -375,6 +392,7 @@
           <Property Name="URL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="FECHA" Type="DateTime" Precision="3" />
           <NavigationProperty Name="TB_USUARIO" Relationship="Self.FK_TB_HISTO_RL_USUARI_TB_USUAR" FromRole="TB_HISTORIAL_ACCIONES" ToRole="TB_USUARIO" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
         </EntityType>
         <EntityType Name="TB_OPERACIONES">
           <Key>
@@ -394,6 +412,8 @@
           <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
           <NavigationProperty Name="TB_CATEGORIAS" Relationship="Self.FK_TB_OPERA_RL_OPERAC_TB_CATEG" FromRole="TB_OPERACIONES" ToRole="TB_CATEGORIAS" />
           <NavigationProperty Name="TB_CUENTAS_BANCARIAS" Relationship="Self.FK_TB_OPERA_RL_OPERAC_TB_CUENT" FromRole="TB_OPERACIONES" ToRole="TB_CUENTAS_BANCARIAS" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
+          <Property Name="APROBADO" Type="Boolean" />
         </EntityType>
         <EntityType Name="TB_PERMISOS">
           <Key>
@@ -404,6 +424,7 @@
           <Property Name="VIEW" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
           <Property Name="URL" Type="String" MaxLength="255" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="TB_ROLES" Relationship="Self.RL_ROL_PERMISO" FromRole="TB_PERMISOS" ToRole="TB_ROLES" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
         </EntityType>
         <EntityType Name="TB_ROLES">
           <Key>
@@ -414,6 +435,7 @@
           <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TB_PERMISOS" Relationship="Self.RL_ROL_PERMISO" FromRole="TB_ROLES" ToRole="TB_PERMISOS" />
           <NavigationProperty Name="TB_USUARIO" Relationship="Self.RL_USUARIO_ROL" FromRole="TB_ROLES" ToRole="TB_USUARIO" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
         </EntityType>
         <EntityType Name="TB_TIPOS_CUENTAS">
           <Key>
@@ -424,6 +446,7 @@
           <Property Name="USUARIO_INSERT" Type="Int32" />
           <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
           <NavigationProperty Name="TB_CUENTAS_BANCARIAS" Relationship="Self.FK_TB_CUENT_RL_CUENTA_TB_TIPOS" FromRole="TB_TIPOS_CUENTAS" ToRole="TB_CUENTAS_BANCARIAS" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
         </EntityType>
         <EntityType Name="TB_TIPOS_FLUJOS">
           <Key>
@@ -435,6 +458,7 @@
           <Property Name="USUARIO_INSERT" Type="Int32" />
           <Property Name="FECHA_INSERT" Type="DateTime" Precision="3" />
           <NavigationProperty Name="TB_CATEGORIAS" Relationship="Self.FK_TB_CATEG_RL_CATEGO_TB_TIPOS" FromRole="TB_TIPOS_FLUJOS" ToRole="TB_CATEGORIAS" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
         </EntityType>
         <EntityType Name="TB_USUARIO">
           <Key>
@@ -450,6 +474,7 @@
           <Property Name="FECHA_UPDATE" Type="DateTime" Precision="3" />
           <NavigationProperty Name="TB_HISTORIAL_ACCIONES" Relationship="Self.FK_TB_HISTO_RL_USUARI_TB_USUAR" FromRole="TB_USUARIO" ToRole="TB_HISTORIAL_ACCIONES" />
           <NavigationProperty Name="TB_ROLES" Relationship="Self.RL_USUARIO_ROL" FromRole="TB_USUARIO" ToRole="TB_ROLES" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
         </EntityType>
         <Association Name="FK_TB_CUENT_RL_CUENTA_TB_BANCO">
           <End Role="TB_BANCOS" Type="Self.TB_BANCOS" Multiplicity="1" />
@@ -582,6 +607,7 @@
             <Parameter Name="id_tipo_cuenta" Mode="In" Type="Decimal" />
             <Parameter Name="id_banco" Mode="In" Type="Decimal" />
             <Parameter Name="saldo" Mode="In" Type="Double" />
+            <Parameter Name="numero_cuenta" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_TB_CUENTAS_BANCARIAS_UPDATE">
             <Parameter Name="id_cuenta_bancaria" Mode="In" Type="Decimal" />
@@ -600,6 +626,7 @@
           <EntitySetMapping Name="TB_BANCOS">
             <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_BANCOS">
               <MappingFragment StoreEntitySet="TB_BANCOS">
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
                 <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
@@ -611,6 +638,7 @@
           <EntitySetMapping Name="TB_CATEGORIAS">
             <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_CATEGORIAS">
               <MappingFragment StoreEntitySet="TB_CATEGORIAS">
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
                 <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
                 <ScalarProperty Name="ID_TIPO_FLUJO" ColumnName="ID_TIPO_FLUJO" />
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
@@ -623,6 +651,7 @@
           <EntitySetMapping Name="TB_CUENTAS_BANCARIAS">
             <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_CUENTAS_BANCARIAS">
               <MappingFragment StoreEntitySet="TB_CUENTAS_BANCARIAS">
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
                 <ScalarProperty Name="NUMERO_CUENTA" ColumnName="NUMERO_CUENTA" />
                 <ScalarProperty Name="ID_TIPO_CUENTA" ColumnName="ID_TIPO_CUENTA" />
                 <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
@@ -636,6 +665,7 @@
           <EntitySetMapping Name="TB_HISTORIAL_ACCIONES">
             <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_HISTORIAL_ACCIONES">
               <MappingFragment StoreEntitySet="TB_HISTORIAL_ACCIONES">
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
                 <ScalarProperty Name="ID_HISTORIAL" ColumnName="ID_HISTORIAL" />
                 <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
                 <ScalarProperty Name="URL" ColumnName="URL" />
@@ -646,6 +676,8 @@
           <EntitySetMapping Name="TB_OPERACIONES">
             <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_OPERACIONES">
               <MappingFragment StoreEntitySet="TB_OPERACIONES">
+                <ScalarProperty Name="APROBADO" ColumnName="APROBADO" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
                 <ScalarProperty Name="ID_TIPO_CUENTA" ColumnName="ID_TIPO_CUENTA" />
                 <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
                 <ScalarProperty Name="ID_CUENTA_BANCARIA" ColumnName="ID_CUENTA_BANCARIA" />
@@ -661,6 +693,7 @@
           <EntitySetMapping Name="TB_PERMISOS">
             <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_PERMISOS">
               <MappingFragment StoreEntitySet="TB_PERMISOS">
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
                 <ScalarProperty Name="ID_PERMISO" ColumnName="ID_PERMISO" />
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
                 <ScalarProperty Name="VIEW" ColumnName="VIEW" />
@@ -671,6 +704,7 @@
           <EntitySetMapping Name="TB_ROLES">
             <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_ROLES">
               <MappingFragment StoreEntitySet="TB_ROLES">
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
                 <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
@@ -680,6 +714,7 @@
           <EntitySetMapping Name="TB_TIPOS_CUENTAS">
             <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_TIPOS_CUENTAS">
               <MappingFragment StoreEntitySet="TB_TIPOS_CUENTAS">
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
                 <ScalarProperty Name="ID_TIPO_CUENTA" ColumnName="ID_TIPO_CUENTA" />
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
                 <ScalarProperty Name="USUARIO_INSERT" ColumnName="USUARIO_INSERT" />
@@ -690,6 +725,7 @@
           <EntitySetMapping Name="TB_TIPOS_FLUJOS">
             <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_TIPOS_FLUJOS">
               <MappingFragment StoreEntitySet="TB_TIPOS_FLUJOS">
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
                 <ScalarProperty Name="ID_TIPO_FLUJO" ColumnName="ID_TIPO_FLUJO" />
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
@@ -701,6 +737,7 @@
           <EntitySetMapping Name="TB_USUARIO">
             <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_USUARIO">
               <MappingFragment StoreEntitySet="TB_USUARIO">
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
                 <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
                 <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />

@@ -4,6 +4,7 @@
     <EntitySetMapping Name="TB_BANCOS">
       <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_BANCOS">
         <MappingFragment StoreEntitySet="TB_BANCOS">
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
           <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
           <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
@@ -15,6 +16,7 @@
     <EntitySetMapping Name="TB_CATEGORIAS">
       <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_CATEGORIAS">
         <MappingFragment StoreEntitySet="TB_CATEGORIAS">
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
           <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
           <ScalarProperty Name="ID_TIPO_FLUJO" ColumnName="ID_TIPO_FLUJO" />
           <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
@@ -27,6 +29,7 @@
     <EntitySetMapping Name="TB_CUENTAS_BANCARIAS">
       <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_CUENTAS_BANCARIAS">
         <MappingFragment StoreEntitySet="TB_CUENTAS_BANCARIAS">
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
           <ScalarProperty Name="NUMERO_CUENTA" ColumnName="NUMERO_CUENTA" />
           <ScalarProperty Name="ID_TIPO_CUENTA" ColumnName="ID_TIPO_CUENTA" />
           <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
@@ -40,6 +43,7 @@
     <EntitySetMapping Name="TB_HISTORIAL_ACCIONES">
       <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_HISTORIAL_ACCIONES">
         <MappingFragment StoreEntitySet="TB_HISTORIAL_ACCIONES">
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
           <ScalarProperty Name="ID_HISTORIAL" ColumnName="ID_HISTORIAL" />
           <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
           <ScalarProperty Name="URL" ColumnName="URL" />
@@ -50,6 +54,8 @@
     <EntitySetMapping Name="TB_OPERACIONES">
       <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_OPERACIONES">
         <MappingFragment StoreEntitySet="TB_OPERACIONES">
+          <ScalarProperty Name="APROBADO" ColumnName="APROBADO" />
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
           <ScalarProperty Name="ID_TIPO_CUENTA" ColumnName="ID_TIPO_CUENTA" />
           <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
           <ScalarProperty Name="ID_CUENTA_BANCARIA" ColumnName="ID_CUENTA_BANCARIA" />
@@ -65,6 +71,7 @@
     <EntitySetMapping Name="TB_PERMISOS">
       <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_PERMISOS">
         <MappingFragment StoreEntitySet="TB_PERMISOS">
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
           <ScalarProperty Name="ID_PERMISO" ColumnName="ID_PERMISO" />
           <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
           <ScalarProperty Name="VIEW" ColumnName="VIEW" />
@@ -75,6 +82,7 @@
     <EntitySetMapping Name="TB_ROLES">
       <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_ROLES">
         <MappingFragment StoreEntitySet="TB_ROLES">
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
           <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
           <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
@@ -84,6 +92,7 @@
     <EntitySetMapping Name="TB_TIPOS_CUENTAS">
       <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_TIPOS_CUENTAS">
         <MappingFragment StoreEntitySet="TB_TIPOS_CUENTAS">
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
           <ScalarProperty Name="ID_TIPO_CUENTA" ColumnName="ID_TIPO_CUENTA" />
           <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="USUARIO_INSERT" ColumnName="USUARIO_INSERT" />
@@ -94,6 +103,7 @@
     <EntitySetMapping Name="TB_TIPOS_FLUJOS">
       <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_TIPOS_FLUJOS">
         <MappingFragment StoreEntitySet="TB_TIPOS_FLUJOS">
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
           <ScalarProperty Name="ID_TIPO_FLUJO" ColumnName="ID_TIPO_FLUJO" />
           <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
@@ -105,6 +115,7 @@
     <EntitySetMapping Name="TB_USUARIO">
       <EntityTypeMapping TypeName="DB_FLUJOCAJAModel.TB_USUARIO">
         <MappingFragment StoreEntitySet="TB_USUARIO">
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
           <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
           <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />

@@ -26,6 +26,7 @@ namespace DATA
         public string DESCRIPCION { get; set; }
         public Nullable<int> USUARIO_INSERT { get; set; }
         public Nullable<System.DateTime> FECHA_INSERT { get; set; }
+        public Nullable<bool> IS_ACTIVE { get; set; }
     
         public virtual TB_TIPOS_FLUJOS TB_TIPOS_FLUJOS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

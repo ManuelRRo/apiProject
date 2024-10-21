@@ -7,6 +7,7 @@
     </Key>
     <Property Name="ID_ROL" Type="numeric" Precision="18" Scale="0" Nullable="false" />
     <Property Name="ID_PERMISO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IS_ACTIVE" Type="bit" />
   </EntityType>
   <EntityType Name="RL_USUARIO_ROL">
     <Key>
@@ -15,6 +16,7 @@
     </Key>
     <Property Name="ID_USUARIO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
     <Property Name="ID_ROL" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IS_ACTIVE" Type="bit" />
   </EntityType>
   <EntityType Name="TB_BANCOS">
     <Key>
@@ -25,6 +27,7 @@
     <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
     <Property Name="USUARIO_INSERT" Type="int" />
     <Property Name="FECHA_INSERT" Type="datetime" />
+    <Property Name="IS_ACTIVE" Type="bit" />
   </EntityType>
   <EntityType Name="TB_CATEGORIAS">
     <Key>
@@ -36,6 +39,7 @@
     <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
     <Property Name="USUARIO_INSERT" Type="int" />
     <Property Name="FECHA_INSERT" Type="datetime" />
+    <Property Name="IS_ACTIVE" Type="bit" />
   </EntityType>
   <EntityType Name="TB_CUENTAS_BANCARIAS">
     <Key>
@@ -50,6 +54,7 @@
     <Property Name="USUARIO_INSERT" Type="int" />
     <Property Name="FECHA_INSERT" Type="datetime" />
     <Property Name="NUMERO_CUENTA" Type="varchar" MaxLength="20" />
+    <Property Name="IS_ACTIVE" Type="bit" />
   </EntityType>
   <EntityType Name="TB_HISTORIAL_ACCIONES">
     <Key>
@@ -59,6 +64,7 @@
     <Property Name="ID_USUARIO" Type="numeric" Precision="18" Scale="0" />
     <Property Name="URL" Type="varchar" MaxLength="255" />
     <Property Name="FECHA" Type="datetime" />
+    <Property Name="IS_ACTIVE" Type="bit" />
   </EntityType>
   <EntityType Name="TB_OPERACIONES">
     <Key>
@@ -76,6 +82,8 @@
     <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
     <Property Name="USUARIO_INSERT" Type="int" />
     <Property Name="FECHA_INSERT" Type="datetime" />
+    <Property Name="IS_ACTIVE" Type="bit" />
+    <Property Name="APROBADO" Type="bit" />
   </EntityType>
   <EntityType Name="TB_PERMISOS">
     <Key>
@@ -85,6 +93,7 @@
     <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
     <Property Name="VIEW" Type="char" MaxLength="50" />
     <Property Name="URL" Type="char" MaxLength="255" />
+    <Property Name="IS_ACTIVE" Type="bit" />
   </EntityType>
   <EntityType Name="TB_ROLES">
     <Key>
@@ -93,6 +102,7 @@
     <Property Name="ID_ROL" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
     <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
+    <Property Name="IS_ACTIVE" Type="bit" />
   </EntityType>
   <EntityType Name="TB_TIPOS_CUENTAS">
     <Key>
@@ -102,6 +112,7 @@
     <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
     <Property Name="USUARIO_INSERT" Type="int" />
     <Property Name="FECHA_INSERT" Type="datetime" />
+    <Property Name="IS_ACTIVE" Type="bit" />
   </EntityType>
   <EntityType Name="TB_TIPOS_FLUJOS">
     <Key>
@@ -112,6 +123,7 @@
     <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
     <Property Name="USUARIO_INSERT" Type="int" />
     <Property Name="FECHA_INSERT" Type="datetime" />
+    <Property Name="IS_ACTIVE" Type="bit" />
   </EntityType>
   <EntityType Name="TB_USUARIO">
     <Key>
@@ -125,6 +137,7 @@
     <Property Name="USUARIO_INSERT" Type="int" />
     <Property Name="FECHA_INSERT" Type="datetime" />
     <Property Name="FECHA_UPDATE" Type="datetime" />
+    <Property Name="IS_ACTIVE" Type="bit" />
   </EntityType>
   <Association Name="FK_RL_ROL_P_RL_ROL_PE_TB_PERMI">
     <End Role="TB_PERMISOS" Type="Self.TB_PERMISOS" Multiplicity="1" />
@@ -254,6 +267,7 @@
     <Parameter Name="id_tipo_cuenta" Type="decimal" Mode="In" />
     <Parameter Name="id_banco" Type="decimal" Mode="In" />
     <Parameter Name="saldo" Type="float" Mode="In" />
+    <Parameter Name="numero_cuenta" Type="varchar" Mode="In" />
   </Function>
   <Function Name="SP_TB_CUENTAS_BANCARIAS_UPDATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id_cuenta_bancaria" Type="decimal" Mode="In" />
